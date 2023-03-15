@@ -5,7 +5,7 @@ import './typography.css'
 export default function Home() {
   return (
     <div>
-      ella
+      hej
     </div>
   )
 }

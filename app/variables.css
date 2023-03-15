@@ -1,0 +1,32 @@
+:root {
+    --color-primary: #000;
+    --color-primary-20: #00000033;
+    --color-secondary: #FFF;
+
+    --color-field: #cbc497;
+    --color-field-dark: #a89d55;
+    --color-sand: #d3b73d;
+    --color-sand-dark: #c1a016;
+    --color-red: #bb341f;
+    --color-red-dark: #721904;
+    --color-blue: #657b9f;
+    --color-blue-dark: #455b81;
+    --color-orange: #b87f45;
+    --color-orange-dark: #985a1c;
+    --color-green: #9eb45a;
+    --color-green-dark: #7b932e;
+    
+    --font-primary: "Inter", sans-serif;
+    --font-base: 1rem;
+    --font-scale: 1.25;
+    --font-size-0: calc(var(--font-base) / var(--font-scale));
+    --font-size-1: var(--font-base);
+    --font-size-2: calc(var(--font-size-1) * var(--font-scale));
+    --font-size-3: calc(var(--font-size-2) * var(--font-scale));
+    --font-size-4: calc(var(--font-size-3) * var(--font-scale));
+    --font-size-5: calc(var(--font-size-4) * var(--font-scale));
+    --font-size-6: calc(var(--font-size-5) * var(--font-scale));
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+}

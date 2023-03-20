@@ -1,6 +1,6 @@
 :root {
     --color-primary: #000;
-    --color-primary-20: #00000033;
+    --color-primary-25: #00000040;
     --color-secondary: #FFF;
 
     --color-field: #cbc497;
@@ -8,12 +8,16 @@
     --color-sand: #d3b73d;
     --color-sand-dark: #c1a016;
     --color-red: #bb341f;
+    --color-red-25: #bb341f40;
     --color-red-dark: #721904;
     --color-blue: #657b9f;
+    --color-blue-25: #657b9f40;
     --color-blue-dark: #455b81;
     --color-orange: #b87f45;
+    --color-orange-25: #b87f4540;
     --color-orange-dark: #985a1c;
     --color-green: #9eb45a;
+    --color-green-25: #9eb45a40;
     --color-green-dark: #7b932e;
     
     --font-primary: "Inter", sans-serif;

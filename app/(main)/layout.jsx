@@ -1,9 +1,9 @@
-
+import Nav from "./navigation"
 
 export default function Nav({ children }) {
     return (
         <>
-            <div>Navigation</div>
+            <Nav />
             {children}
         </>
         

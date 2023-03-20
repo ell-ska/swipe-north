@@ -1,9 +1,13 @@
-## Regler:
+## Regler :)
+Vi är i skolan måndag, onsdag, fredag om inget annat sägs.
+Vi diskuterar approach till koden man ska skriva och ber om feedback på det vi håller på med.
+
 ### Git:
 - jobba i en egen branch döpt till ditt namn
 - gör en commit efter varje uppgift / task i backloggen
 - kör prettier i filerna du jobbat i innan du commitar
-- när du vill mergea skicka en pull request
+  - `npx prettier --write "file-name"`
+- när du vill mergea ditt jobb med main skicka en pull request, skriv kort vad du har gjort
 
 ### Code style:
 - inga semicolon
@@ -20,5 +24,6 @@
   - https://medium.com/@adammlr/sort-css-properties-in-vscode-e59033c2c675
 - global css för resets, variabler, typografi, css komponenter mm
 - individuella sidor stylas med module.css
+- vi jobbar så mycket som möjligt med Rem eftersom designen utgår ifrån det
 
 Lämna länkar till ex api som används i koden

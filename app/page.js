@@ -5,7 +5,7 @@ import './typography.css'
 export default function Home() {
   return (
     <div>
-      hejSAN Max är här
+      First page of website
     </div>
   )
 }

@@ -5,9 +5,18 @@ Vi diskuterar approach till koden man ska skriva och ber om feedback på det vi 
 ### Git:
 - jobba i en egen branch döpt till ditt namn
 - gör en commit efter varje uppgift / task i backloggen
-- kör prettier i filerna du jobbat i innan du commitar
+
+#### Git workflow
+1. `git checkout "your-branch-name"`
+2. `git pull`
+3. `git merge main`
+4. make your changes
+5. run prettier in the files you worked in
   - `npx prettier --write "file-name"`
-- när du vill mergea ditt jobb med main skicka en pull request, skriv kort vad du har gjort
+6. `git add .`
+7. `git commit -m "describe your changes"`
+8. go to github.com and make a pull request
+9. repeat with a new task
 
 ### Code style:
 - inga semicolon

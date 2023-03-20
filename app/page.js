@@ -5,9 +5,7 @@ import './typography.css'
 export default function Home() {
   return (
     <div>
-      hej
-      Ida
-      :)
+      hejSAN Max är här
     </div>
   )
 }

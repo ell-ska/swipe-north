@@ -19,6 +19,8 @@
     --color-green: #9eb45a;
     --color-green-25: #9eb45a40;
     --color-green-dark: #7b932e;
+
+    --shadow: 0 4px 8px var(--color-primary-25);
     
     --font-primary: "Inter", sans-serif;
     --font-base: 1rem;

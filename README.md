@@ -7,16 +7,18 @@ Vi diskuterar approach till koden man ska skriva och ber om feedback på det vi 
 - gör en commit efter varje uppgift / task i backloggen
 
 #### Git workflow
-1. `git checkout "your-branch-name"`
+1. `git checkout main`
 2. `git pull`
-3. `git merge main`
-4. make your changes
-5. run prettier in the files you worked in
+3. `git checkout "your-branch-name"`
+4. `git pull`
+5. `git merge main`
+6. make your changes
+7. run prettier in the files you worked in
   - `npx prettier --write "file-name"`
-6. `git add .`
-7. `git commit -m "describe your changes"`
-8. go to github.com and make a pull request
-9. repeat with a new task
+8. `git add .`
+9. `git commit -m "describe your changes"`
+10. go to github.com and make a pull request
+11. repeat with a new task
 
 ### Code style:
 - inga semicolon

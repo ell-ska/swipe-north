@@ -1,0 +1,45 @@
+.tag {
+    --tag-background: var(--color-blue-25);
+    --tag-color: var(--color-blue);
+
+    background-color: var(--tag-background);
+    border-radius: 50vh;
+    color: var(--tag-color);
+    cursor: pointer;
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-medium);
+    max-width: min-content;
+    padding: .5rem 1rem;
+}
+
+.tag:active {
+    border: 1px solid var(--tag-color);
+    padding: calc(.5rem - 1px) calc(1rem - 1px);
+}
+
+.tag.disabled {
+    background: none;
+    border: 1px solid var(--color-primary-25);
+    color: var(--color-primary-25);
+    padding: calc(.5rem - 1px) calc(1rem - 1px);
+}
+
+.tag.blue {
+    --tag-background: var(--color-blue-25);
+    --tag-color: var(--color-blue);
+}
+
+.tag.green {
+    --tag-background: var(--color-green-25);
+    --tag-color: var(--color-green);
+}
+
+.tag.orange {
+    --tag-background: var(--color-orange-25);
+    --tag-color: var(--color-orange);  
+}
+
+.tag.red {
+    --tag-background: var(--color-red-25);
+    --tag-color: var(--color-red);  
+}

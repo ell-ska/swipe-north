@@ -1,0 +1,48 @@
+.navbar {
+    align-items: center;
+    display: flex;
+    height: 2rem;
+    justify-content: space-between;
+    margin: 3rem 2rem 0 2rem;
+}
+
+.hamburgerMenu {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: 1.5rem;
+    justify-content: center;
+    width: 1.5rem;
+}
+
+.navItem:hover {
+    cursor: pointer;
+}
+
+.hamburgerMenuLine {
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: 1rem;
+    display: block;
+    width: 1.5rem;
+}
+
+.positionLineOne, 
+.positionLineThree {
+    transition-duration: .3s;
+    position: absolute;
+    width: 2rem;
+}
+
+.positionLineOne {
+    transform: rotate(45deg);
+}
+
+.positionLineThree {
+    transform: rotate(-45deg);
+}
+
+.hide {
+    display: none;
+}

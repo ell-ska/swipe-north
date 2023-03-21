@@ -1,6 +1,6 @@
 import Nav from "./navigation"
 
-export default function Nav({ children }) {
+export default function Layout({ children }) {
     return (
         <>
             <Nav />

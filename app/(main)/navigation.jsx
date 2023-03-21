@@ -1,28 +1,36 @@
 'use client'
 import { useState } from "react"
 import Link from "next/link"
-import styles from './layout.module.css'
-import logo from '../../public/icons/logo.svg'
-import heart from '../../public/icons/heartFilled.svg'
+import Image from "next/image"
+import styles from '../globalStyles/components/navigation.module.css'
+import logo from '../../public/icons/skelleftea-logo.svg'
+import heart from '../../public/icons/heart-filled.svg'
 
-// const [menu, setMenu] = useState('');
+function Nav() {
 
-const handleClick = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
 
-}
-
-export default function Nav() {
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen)
+    }
+    
     return (
         <>
-            <Nav className={styles.navbar}>
-                <div onClick={() => handleClick()} className={styles.navItem}>
-                    <div className={styles.hamburgerMenuLine}></div>
-                    <div className={styles.hamburgerMenuLine}></div>
-                    <div className={styles.hamburgerMenuLine}></div>
+            <div className={styles.navbar}>
+                <div onClick={() => {toggleMenu()}} className={`${styles.navItem} ${styles.hamburgerMenu} ${menuOpen ? styles.active : ''}`}>
+                    <div className={`${styles.hamburgerMenuLine}  ${menuOpen ? styles.positionLineOne : ''}`}></div>
+                    <div className={`${styles.hamburgerMenuLine}  ${menuOpen ? styles.hide : ''}`}></div>
+                    <div className={`${styles.hamburgerMenuLine}  ${menuOpen ? styles.positionLineThree : ''}`}></div>
                 </div>
-                <Link href='/home' className={styles.navItem}>{logo}</Link>
-                <Link  href='/saved-jobs' className={styles.navItem}>{heart}</Link>
-            </Nav>
+                <Link href='/home' className={styles.navItem}>
+                    <Image src={logo} alt='Skelleftea logo'/>
+                </Link>
+                <Link href='/saved-jobs' className={styles.navItem}>
+                    <Image src={heart} alt='Saved jobs'/>
+                </Link>
+            </div>
         </>  
     )
 }
+
+export default Nav

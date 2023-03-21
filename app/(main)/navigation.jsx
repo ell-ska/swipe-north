@@ -6,6 +6,7 @@ import styles from '../globalStyles/components/navigation.module.css'
 import logo from '../../public/icons/skelleftea-logo.svg'
 import heart from '../../public/icons/heart-filled.svg'
 
+
 function Nav() {
 
     const [menuOpen, setMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ function Nav() {
     return (
         <>
             <div className={styles.navbar}>
-                <div onClick={() => {toggleMenu()}} className={`${styles.navItem} ${styles.hamburgerMenu} ${menuOpen ? styles.active : ''}`}>
+                <div onClick={() => {toggleMenu()}} className={`${styles.navItem} ${styles.hamburgerMenu}`}>
                     <div className={`${styles.hamburgerMenuLine}  ${menuOpen ? styles.positionLineOne : ''}`}></div>
                     <div className={`${styles.hamburgerMenuLine}  ${menuOpen ? styles.hide : ''}`}></div>
                     <div className={`${styles.hamburgerMenuLine}  ${menuOpen ? styles.positionLineThree : ''}`}></div>

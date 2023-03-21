@@ -1,0 +1,31 @@
+.container {
+    margin: 3rem 2rem 0 2rem;
+}
+
+.h1 {
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 2rem;
+    width: fit-content;
+}
+
+.h3 {
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-regular);
+}
+
+.tagContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tags {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.buttonAdded {
+    width: -webkit-fill-available;
+}

@@ -4,6 +4,23 @@
     gap: .5rem;
 }
 
+.tag-container-and-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tags-component {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.tags-component h3 {
+    font-size: var(--font-size-1);
+    font-weight: var(--font-weight-regular);
+}
+
 .tag {
     --tag-background: var(--color-blue-25);
     --tag-color: var(--color-blue);

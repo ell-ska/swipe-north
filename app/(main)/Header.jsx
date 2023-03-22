@@ -1,8 +1,10 @@
 'use client'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import styles from '../globalStyles/components/navigation.module.css'
+import { usePathname } from "next/navigation"
+import Menu from "./Menu"
+import styles from '../globalStyles/components/header.module.css'
 import logo from '../../public/icons/skelleftea-logo.svg'
 import heart from '../../public/icons/heart-filled.svg'
 
@@ -14,10 +16,16 @@ function Nav() {
     const toggleMenu = () => {
         setMenuOpen(!menuOpen)
     }
+
+    const routerPath = usePathname()
+
+    useEffect(() => {
+        setMenuOpen(false)
+    }, [routerPath])
     
     return (
         <>
-            <div className={styles.navbar}>
+            <div className={menuOpen ? `${styles.header} ${styles.headerOpen}` : styles.header}>
                 <div onClick={() => {toggleMenu()}} className={`${styles.navItem} ${styles.hamburgerMenu}`}>
                     <div className={`${styles.hamburgerMenuLine}  ${menuOpen ? styles.positionLineOne : ''}`}></div>
                     <div className={`${styles.hamburgerMenuLine}  ${menuOpen ? styles.hide : ''}`}></div>
@@ -30,6 +38,7 @@ function Nav() {
                     <Image src={heart} alt='Saved jobs'/>
                 </Link>
             </div>
+            {menuOpen ? <Menu></Menu> : null}
         </>  
     )
 }

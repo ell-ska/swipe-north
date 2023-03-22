@@ -1,9 +1,16 @@
-.navbar {
+.header {
     align-items: center;
     display: flex;
-    height: 2rem;
     justify-content: space-between;
-    margin: 3rem 2rem 0 2rem;
+    padding-inline: 2rem;
+    min-height: 5rem;
+    height: min-content;
+}
+
+.headerOpen {
+    position: absolute;
+    z-index: 900;
+    width: 100%;
 }
 
 .hamburgerMenu {
@@ -30,7 +37,7 @@
 
 .positionLineOne, 
 .positionLineThree {
-    transition-duration: .3s;
+    transition: transform .3s ease;
     position: absolute;
     width: 2rem;
 }

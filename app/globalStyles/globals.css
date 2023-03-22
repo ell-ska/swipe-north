@@ -5,11 +5,14 @@
 }
 
 body {
-  color: var(--color-primary);
-  font-family: var(--font-primary);
-  font-weight: var(--font-weight-regular);
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-regular);
+  min-height: 100vh;
 }
 
 img, svg {

@@ -1,23 +1,21 @@
 import Link from 'next/link'
-import '../globalStyles/components/Menu.css'
+import { usePathname } from 'next/navigation'
+import '../globalStyles/components/menu.css'
 
 export default function Menu() {
+    const routerPath = usePathname()
+
     return (
-        <>
-        <div className='menu-items'>
-            <div className='home-link'>
+        <div className='menu'>   
+            <div className={routerPath === '/home' ? 'menu-item menu-item--active' : 'menu-item'}>
                 <Link href='/home'>Hem</Link>
             </div>         
-            <div className='saved-link'>
+            <div className={routerPath === '/saved-jobs' ? 'menu-item menu-item--active' : 'menu-item'}>
                 <Link href='/saved-jobs'>Sparade jobb</Link>
             </div>
-            <div className='tags-link'>
+            <div className={routerPath === '/profile' ? 'menu-item menu-item--active' : 'menu-item'}>
                 <Link href='/profile'>Mina taggar</Link>
-            </div>     
-        </div>                            
-       
-        <div className='menu-container'>            
+            </div>                       
         </div>
-        </>
     )
 }

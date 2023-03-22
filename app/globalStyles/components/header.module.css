@@ -1,7 +1,6 @@
 .header {
     align-items: center;
     display: flex;
-<<<<<<< HEAD:app/globalStyles/components/header.module.css
     justify-content: space-between;
     padding-inline: 2rem;
     min-height: 5rem;
@@ -12,11 +11,6 @@
     position: absolute;
     z-index: 900;
     width: 100%;
-=======
-    height: var(--font-size-4);
-    justify-content: space-between;
-    margin: 3rem var(--font-size-4) 0 var(--font-size-4);
->>>>>>> 962718c6141f7508c335408ae59c173d3c85914e:app/globalStyles/components/navigation.module.css
 }
 
 .hamburgerMenu {

@@ -9,20 +9,6 @@ import api from './dummyApi'
 // connected to jobs
 // sorted alphabetically
 
-// const [tags, setTags] = useState(() => {
-//     return (localStorage.getItem('myTags')) || []
-//   })
-
-const getAvaliableTags = () => {
-
-    let allAvaliableTags = []
-    api.forEach(job => {
-        allAvaliableTags = allAvaliableTags.concat(job.tags)
-    })
-
-    const uniqueTags = [...new Map(allAvaliableTags.map(tag => [tag.name, tag])).values()]
-    return uniqueTags
-}
 
 const Tag = ({ children, color }) => {
 
@@ -34,47 +20,68 @@ const Tag = ({ children, color }) => {
         <div
             className={`tag ${tagClass}`}
             onClick={(e) => {
-                storeMyTags(e, isActive)
+                storeMyTags(e)
                 setIsActive(!isActive)
-                console.log(e)
             }}
         >{children}</div>
     )
 }
 
-const storeMyTags = (e) => {
-
-    let allTags = getAvaliableTags()
-    let updatedTags = []
-
-    const addedTag = allTags.find(tag => tag.name === e.target.innerHTML)
-    console.log(addedTag)
-    
-    useEffect(() => {
-        updatedTags.push(addedTag)
-        localStorage.setItem('myTags', updatedTags)
-        console.log(localStorage)
-    }, [e])
-
-    // getAvaliableTags.forEach((tag) => {
-        
-    // })
-    
-    // let allTags = getAvaliableTags()
-
-    // return allTags
-    // useEffect(() => {
-    //     localStorage.setItem('myTags', myTags())
-    // }, [isActive])
-}
-
-
-
-
-
 const AllTags = () => {
 
+    const getAvaliableTags = () => {
+
+        let allAvaliableTags = []
+        api.map(api => {
+            // console.log(api.tags)
+            // ({...job.tags, active: false}) 
+            // job.tags.active = false
+            // const jobWithStatusActive = {...tags, active: false}
+            allAvaliableTags = allAvaliableTags.concat(api.tags)
+            
+        })
+    
+        const uniqueTags = [...new Map(allAvaliableTags.map(tag => [tag.name, tag])).values()]
+        console.log(uniqueTags)
+
+        let tagsNotActive = []
+
+        uniqueTags.map((tag) => {
+            tagsNotActive = tagsNotActive.concat({...tag, active: false})
+            
+        })
+        console.log(tagsNotActive)
+
+        return uniqueTags
+    }
+
     const avaliableTags = getAvaliableTags()
+
+    const storeMyTags = (e) => {
+
+        let allTags = avaliableTags
+        let updatedTags = []
+    
+        const addedTag = allTags.find(tag => tag.name === e.target.innerHTML)
+        addedTag.active = true;
+        console.log(addedTag)
+
+        updatedTags.push(addedTag)
+        
+        setTags([...avaliableTags])
+        
+    }
+
+    const [tags, setTags] = useState(() => {
+        return JSON.parse(localStorage.getItem('tags')) || avaliableTags
+    })
+    
+    useEffect(() => {
+        
+        localStorage.setItem('tags', JSON.stringify(tags))
+    }, [tags])
+
+    
     console.log(avaliableTags)
 
     return (

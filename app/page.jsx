@@ -1,4 +1,3 @@
-import Tag from './Tag'
 import './globalStyles/variables.css'
 import './globalStyles/globals.css'
 import './globalStyles/typography.css'
@@ -6,7 +5,7 @@ import './globalStyles/components/tags.css'
 import './globalStyles/components/buttons.css'
 import logo from '../public/icons/skelleftea-logo.svg'
 import Image from 'next/image'
-import styles from '../app/globalStyles/components/login.module.css'
+import styles from './globalStyles/components/login.module.css'
 import Link from 'next/link'
 
 export default function Login() {

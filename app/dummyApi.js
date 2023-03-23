@@ -203,7 +203,7 @@ const api = [
         img: accountManagerImg,
     },
     {
-        companyName: 'Kommun: Skellefteå',
+        companyName: 'Skellefteå kommun',
         jobTitle: 'Psykolog',
         shortDescription: 'Anderstorp hälsocentral söker nu en psykolog. Vi söker en leg psykolog som har erfarenhet av bedömning och behandlingsarbete, gärna inom primärvården.',
         linkToJobApplication: 'https://recruit.visma.com/spa/public/apply?guidAssignment=eec0e547-66eb-4849-9a89-4f31c5787c84&publishCode=AMS&TK=8d6288a8-9743-4270-a2aa-cb4f22e1fdb5',
@@ -228,7 +228,7 @@ const api = [
         img: psychologistImg,
     },
     {
-        companyName: 'Kommun: Skellefteå',
+        companyName: 'Skellefteå kommun',
         jobTitle: 'Receptionist',
         shortDescription: 'Vi söker dig som är en duktig administratör och har ett gott bemötande. Vi tror att du har ett serviceinriktat förhållningssätt och har intresse, vilja och förmåga att hjälpa andra.',
         linkToJobApplication: 'https://recruit.visma.com/spa/public/apply?guidAssignment=651be8f5-d182-49b5-9a8d-b957c2bda1e9&publishCode=AMS&TK=39459fdf-5cec-4054-97ca-98627bb3205b',

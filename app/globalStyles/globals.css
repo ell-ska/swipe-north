@@ -12,12 +12,14 @@ body {
   flex-direction: column;
   font-family: var(--font-primary);
   font-weight: var(--font-weight-regular);
-  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
 }
 
 img, svg {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 input, button, textarea, select {

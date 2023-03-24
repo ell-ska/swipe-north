@@ -9,20 +9,6 @@ import api from './dummyApi'
 // connected to jobs
 // sorted alphabetically
 
-// const [tags, setTags] = useState(() => {
-//     return (localStorage.getItem('myTags')) || []
-//   })
-
-const getAvaliableTags = () => {
-
-    let allAvaliableTags = []
-    api.forEach(job => {
-        allAvaliableTags = allAvaliableTags.concat(job.tags)
-    })
-
-    const uniqueTags = [...new Map(allAvaliableTags.map(tag => [tag.name, tag])).values()]
-    return uniqueTags
-}
 
 const Tag = ({ children, color }) => {
 
@@ -34,73 +20,88 @@ const Tag = ({ children, color }) => {
         <div
             className={`tag ${tagClass}`}
             onClick={(e) => {
-                storeMyTags(e, isActive)
                 setIsActive(!isActive)
-                console.log(e)
             }}
         >{children}</div>
     )
 }
 
-const storeMyTags = (e) => {
-
-    let allTags = getAvaliableTags()
-    let updatedTags = []
-
-    const addedTag = allTags.find(tag => tag.name === e.target.innerHTML)
-    console.log(addedTag)
-    
-    useEffect(() => {
-        updatedTags.push(addedTag)
-        localStorage.setItem('myTags', updatedTags)
-        console.log(localStorage)
-    }, [e])
-
-    // getAvaliableTags.forEach((tag) => {
-        
-    // })
-    
-    // let allTags = getAvaliableTags()
-
-    // return allTags
-    // useEffect(() => {
-    //     localStorage.setItem('myTags', myTags())
-    // }, [isActive])
-}
-
-
-
-
-
 const AllTags = () => {
 
-    const avaliableTags = getAvaliableTags()
-    console.log(avaliableTags)
+    const getAvailableTags = () => {
+
+        let allAvailableTags = []
+        api.map(api => {
+            allAvailableTags = allAvailableTags.concat(api.tags)
+        })
+    
+        const uniqueTags = [...new Map(allAvailableTags.map(tag => [tag.name, tag])).values()]
+        console.log(uniqueTags)
+
+        let tagsNotActive = []
+
+        uniqueTags.map((tag) => {
+            tagsNotActive = tagsNotActive.concat({...tag, active: false})
+            
+        })
+        console.log(tagsNotActive)
+
+        return uniqueTags
+    }
+
+    const availableTags = getAvailableTags()
+
+    const storeMyTags = () => {
+
+        let allTags = availableTags
+        let updatedTags = []
+    
+        const addedTag = allTags.find(tag => tag.name === e.target.innerHTML)
+        addedTag.active = true;
+        console.log(addedTag)
+
+        updatedTags.push(addedTag)
+        
+        setTags([...updatedTags])
+        
+    }
+
+    const [tags, setTags] = useState(() => {
+        return JSON.parse(localStorage.getItem('tags')) || updatedTags
+    })
+    
+    useEffect(() => {
+        // storeMyTags()
+        localStorage.setItem('tags', JSON.stringify(tags))
+    }, [tags])
+
+    
+    console.log(availableTags)
 
     return (
         <div className='tags-component'>
             <div className='tag-container-and-header'>
                 <h3>Arbetsområden</h3>
                 <div className="tag-container">
-                    {avaliableTags.map(tag => tag.category === 'field' && <Tag key={tag.name} color='blue'>{tag.name}</Tag>)}
+                    {availableTags.map(tag => tag.category === 'field' && <Tag key={tag.name} color='blue'>{tag.name}</Tag>)}
                 </div>
             </div>
             <div className='tag-container-and-header'>
                 <h3>Meriter</h3>
                 <div className="tag-container">
-                    {avaliableTags.map(tag => tag.category === 'qualification' && <Tag key={tag.name} color='green'>{tag.name}</Tag>)}
+                    {availableTags.map(tag => tag.category === 'qualification' && <Tag key={tag.name} color='green'>{tag.name}</Tag>)}
                 </div>
             </div>
             <div className='tag-container-and-header'>
                 <h3>Egenskaper</h3>
                 <div className="tag-container">
-                    {avaliableTags.map(tag => tag.category === 'ability' && <Tag key={tag.name} color='orange'>{tag.name}</Tag>)}
+                    {availableTags.map(tag => tag.category === 'ability' && <Tag key={tag.name} color='orange'>{tag.name}</Tag>)}
                 </div>
             </div>
             <div className='tag-container-and-header'>
                 <h3>Arbetssätt</h3>
                 <div className="tag-container">
-                    {avaliableTags.map(tag => tag.category === 'workstyle' && <Tag key={tag.name} color='red'>{tag.name}</Tag>)}
+                    {availableTags.map(tag => tag.category === 'workstyle' && <Tag key={tag.name} color='red'>{tag.name}</Tag>)}
                 </div>
             </div>
             

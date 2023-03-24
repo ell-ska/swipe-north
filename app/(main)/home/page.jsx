@@ -1,4 +1,5 @@
 'use client'
+import { useState } from 'react'
 import Image from 'next/image'
 import api from '@/app/dummyApi'
 import'./home.css'
@@ -10,10 +11,12 @@ import SwipeCard from './SwipeCard'
 
 export default function Home() {
 
+    const [avaliableJobs, setAvaliableJobs] = useState(() => api)
+
     return (
        <div className='home'>
             <div className="swipe-container">
-                {api.map(job => <SwipeCard key={job.jobTitle} {...job}></SwipeCard>)}
+                {avaliableJobs.map(job => <SwipeCard key={job.jobTitle} {...job} avaliableJobs={avaliableJobs} setAvaliableJobs={setAvaliableJobs}></SwipeCard>)}
             </div>
             <div className="buttons">
                 <button className="button icon">

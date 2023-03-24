@@ -50,11 +50,11 @@ const storeMyTags = (e) => {
     const addedTag = allTags.find(tag => tag.name === e.target.innerHTML)
     console.log(addedTag)
     
-    useEffect(() => {
-        updatedTags.push(addedTag)
-        localStorage.setItem('myTags', updatedTags)
-        console.log(localStorage)
-    }, [e])
+    // useEffect(() => {
+    //     updatedTags.push(addedTag)
+    //     localStorage.setItem('myTags', updatedTags)
+    //     console.log(localStorage)
+    // }, [e])
 
     // getAvaliableTags.forEach((tag) => {
         

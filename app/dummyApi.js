@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid'
 /*
 8-10 jobb
 companyName
@@ -46,6 +47,7 @@ const api = [
             }
         ],
         img: taxiDriverImg,
+        id: nanoid()
     },
     {
         companyName: 'Foodora',
@@ -67,6 +69,7 @@ const api = [
             }
         ],
         img: foodDeliveryImg,
+        id: nanoid()
     },
     {
         companyName: 'Akutmottagning Skellefteå',
@@ -88,6 +91,7 @@ const api = [
             }
         ],
         img: nurseImg,
+        id: nanoid()
     },
     {
         companyName: 'Simplex Bemanning',
@@ -109,6 +113,7 @@ const api = [
             }
         ],
         img: tireChangerImg,
+        id: nanoid()
     },
     {
         companyName: 'ENKV',
@@ -134,6 +139,7 @@ const api = [
             }
         ],
         img: personalAssistantImg,
+        id: nanoid()
     },
     {
         companyName: 'Minnovation International AB',
@@ -155,6 +161,7 @@ const api = [
             }
         ],
         img: technicianImg,
+        id: nanoid()
     },
     {
         companyName: 'PostNord',
@@ -180,6 +187,7 @@ const api = [
             }
         ],
         img: truckDriverImg,
+        id: nanoid()
     },
     {
         companyName: 'First Unit AB',
@@ -201,6 +209,7 @@ const api = [
             }
         ],
         img: accountManagerImg,
+        id: nanoid()
     },
     {
         companyName: 'Skellefteå kommun',
@@ -226,6 +235,7 @@ const api = [
             }
         ],
         img: psychologistImg,
+        id: nanoid()
     },
     {
         companyName: 'Skellefteå kommun',
@@ -247,6 +257,7 @@ const api = [
             }
         ],
         img: receptionistImg,
+        id: nanoid()
     },
 ]
 

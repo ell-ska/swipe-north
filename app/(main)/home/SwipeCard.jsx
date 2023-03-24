@@ -1,9 +1,26 @@
+'use client'
+import { useEffect, useState } from "react"
 import TinderCard from "react-tinder-card"
 
-export default function SwipeCard({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img }) {
+export default function SwipeCard({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id, avaliableJobs, setAvaliableJobs }) {
 
-    const onSwipe = (direction) => {
-        console.log('You swiped: ' + direction)
+    const [savedJobs, setSavedJobs] = useState(() => {
+        return JSON.parse(localStorage.getItem('saved-jobs')) || []
+    })
+
+    useEffect(() => {
+        localStorage.setItem('saved-jobs', JSON.stringify(savedJobs))
+    }, [savedJobs])
+
+    const onSwipe = (direction, id) => {
+        if (direction === 'up') {
+            const jobToSave = avaliableJobs.find(job => job.id === id)
+            setSavedJobs(() => [...savedJobs, jobToSave])
+        }
+
+        const remainingJobs = avaliableJobs.filter(job => job.id != id)
+        setAvaliableJobs(remainingJobs)
+        console.log(remainingJobs)
     }
     
     const onCardLeftScreen = (myIdentifier) => {
@@ -13,9 +30,8 @@ export default function SwipeCard({ companyName, jobTitle, shortDescription, lin
     return (
         <TinderCard
             className="swipe"
-            onSwipe={onSwipe}
-            onCardLeftScreen={() => onCardLeftScreen('fooBar')}
-            preventSwipe={['right', 'left']}
+            // onSwipe={direction => onSwipe(direction, id)}
+            // onCardLeftScreen={() => onCardLeftScreen('fooBar')}
         >
             <div className="swipe__image" style={{backgroundImage: `url(${img.src})`}}>
                 <div className="swipe__overlay">

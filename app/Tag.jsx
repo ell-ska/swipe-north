@@ -1,6 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
-import api from './dummyApi'
+import { useState } from 'react'
 
 // render out all tags
 // activate tags
@@ -9,39 +8,22 @@ import api from './dummyApi'
 // connected to jobs
 // sorted alphabetically
 
-// const [tags, setTags] = useState(() => {
-//     return (localStorage.getItem('myTags')) || []
-//   })
-
-const getAvaliableTags = () => {
-
-    let allAvaliableTags = []
-    api.forEach(job => {
-        allAvaliableTags = allAvaliableTags.concat(job.tags)
-    })
-
-    const uniqueTags = [...new Map(allAvaliableTags.map(tag => [tag.name, tag])).values()]
-    return uniqueTags
-}
-
 const Tag = ({ children, color }) => {
 
     const [isActive, setIsActive] = useState(false)
     const tagClass = isActive ? color : 'disabled'
-    console.log(isActive)
     
     return (
         <div
             className={`tag ${tagClass}`}
             onClick={(e) => {
-                storeMyTags(e, isActive)
                 setIsActive(!isActive)
-                console.log(e)
             }}
         >{children}</div>
     )
 }
 
+<<<<<<< HEAD
 const storeMyTags = (e) => {
 
     let allTags = getAvaliableTags()
@@ -109,3 +91,6 @@ const AllTags = () => {
 }
 
 export { Tag, AllTags }
+=======
+export default Tag
+>>>>>>> ella

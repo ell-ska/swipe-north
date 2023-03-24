@@ -14,9 +14,13 @@ export default function SwipeCard({ companyName, jobTitle, shortDescription, lin
         return JSON.parse(localStorage.getItem('saved-jobs')) || []
     })
 
-    useEffect(() => {
-        localStorage.setItem('saved-jobs', JSON.stringify(savedJobs))
-    }, [savedJobs])
+    // const [savedJobs, setSavedJobs] = useState(() => {
+    //     return JSON.parse(localStorage.getItem('saved-jobs')) || []
+    // })
+
+    // useEffect(() => {
+    //     localStorage.setItem('saved-jobs', JSON.stringify(savedJobs))
+    // }, [savedJobs])
 
     const onSwipe = (direction, id) => {
         if (direction === 'up') {

@@ -9,17 +9,32 @@ import api from './dummyApi'
 // connected to jobs
 // sorted alphabetically
 
+const storeMyTags = (e) => {
+
+    let allTags = availableTags
+    let updatedTags = []
+
+    const addedTag = allTags.find(tag => tag.name === e.target.innerHTML)
+    addedTag.active = true;
+    console.log(addedTag)
+
+    updatedTags.push(addedTag)
+    
+    setTags([...updatedTags])
+    
+}
+
 
 const Tag = ({ children, color }) => {
 
     const [isActive, setIsActive] = useState(false)
     const tagClass = isActive ? color : 'disabled'
-    console.log(isActive)
     
     return (
         <div
             className={`tag ${tagClass}`}
             onClick={(e) => {
+                storeMyTags(e)
                 setIsActive(!isActive)
             }}
         >{children}</div>
@@ -36,8 +51,7 @@ const AllTags = () => {
         })
     
         const uniqueTags = [...new Map(allAvailableTags.map(tag => [tag.name, tag])).values()]
-        console.log(uniqueTags)
-
+    
         let tagsNotActive = []
 
         uniqueTags.map((tag) => {
@@ -51,20 +65,7 @@ const AllTags = () => {
 
     const availableTags = getAvailableTags()
 
-    const storeMyTags = () => {
-
-        let allTags = availableTags
-        let updatedTags = []
     
-        const addedTag = allTags.find(tag => tag.name === e.target.innerHTML)
-        addedTag.active = true;
-        console.log(addedTag)
-
-        updatedTags.push(addedTag)
-        
-        setTags([...updatedTags])
-        
-    }
 
     const [tags, setTags] = useState(() => {
         return JSON.parse(localStorage.getItem('tags')) || updatedTags
@@ -75,7 +76,7 @@ const AllTags = () => {
         localStorage.setItem('tags', JSON.stringify(tags))
     }, [tags])
 
-    
+    console.log(tags)
     console.log(availableTags)
 
     return (

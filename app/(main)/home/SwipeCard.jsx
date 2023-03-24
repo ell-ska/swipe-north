@@ -1,16 +1,22 @@
 'use client'
 import { useEffect, useState } from "react"
-import TinderCard from "react-tinder-card"
+// import TinderCard from "react-tinder-card"
+import dynamic from 'next/dynamic';
 
 export default function SwipeCard({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id, avaliableJobs, setAvaliableJobs }) {
 
-    const [savedJobs, setSavedJobs] = useState(() => {
-        return JSON.parse(localStorage.getItem('saved-jobs')) || []
-    })
+    const TinderCard = dynamic(
+        () => import('react-tinder-card'),
+        { ssr: false }
+    )
 
-    useEffect(() => {
-        localStorage.setItem('saved-jobs', JSON.stringify(savedJobs))
-    }, [savedJobs])
+    // const [savedJobs, setSavedJobs] = useState(() => {
+    //     return JSON.parse(localStorage.getItem('saved-jobs')) || []
+    // })
+
+    // useEffect(() => {
+    //     localStorage.setItem('saved-jobs', JSON.stringify(savedJobs))
+    // }, [savedJobs])
 
     const onSwipe = (direction, id) => {
         if (direction === 'up') {

@@ -1,4 +1,4 @@
-import '../../globalStyles/components/JobCards.css'
+import '../../globalStyles/components/jobcards.css'
 import taxi from '../../../public/images/jobs/taxi-mobile.jpg'
 import Image from 'next/image'
 

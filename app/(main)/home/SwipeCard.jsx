@@ -1,8 +1,14 @@
 'use client'
 import { useEffect, useState } from "react"
-import TinderCard from "react-tinder-card"
+import dynamic from 'next/dynamic'
+// import TinderCard from "react-tinder-card"
 
 export default function SwipeCard({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id, avaliableJobs, setAvaliableJobs }) {
+
+    const DynamicComponentWithNoSSR = dynamic(
+        () => import('react-tinder-card'),
+        { ssr: false }
+    )
 
     const [savedJobs, setSavedJobs] = useState(() => {
         return JSON.parse(localStorage.getItem('saved-jobs')) || []
@@ -28,7 +34,7 @@ export default function SwipeCard({ companyName, jobTitle, shortDescription, lin
     }
 
     return (
-        <TinderCard
+        <DynamicComponentWithNoSSR
             className="swipe"
             // onSwipe={direction => onSwipe(direction, id)}
             // onCardLeftScreen={() => onCardLeftScreen('fooBar')}
@@ -55,6 +61,6 @@ export default function SwipeCard({ companyName, jobTitle, shortDescription, lin
                     </div>
                 </div>
             </div>
-        </TinderCard>
+        </DynamicComponentWithNoSSR>
     )
 }

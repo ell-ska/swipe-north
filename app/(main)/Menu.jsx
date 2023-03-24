@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import '../globalStyles/components/Menu.css'
+import '../globalStyles/components/menu.css'
 
 export default function Menu() {
     const routerPath = usePathname()

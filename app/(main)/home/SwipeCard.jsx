@@ -1,14 +1,14 @@
 'use client'
 import { useEffect, useState } from "react"
-// import dynamic from 'next/dynamic'
-import TinderCard from "react-tinder-card"
+import dynamic from 'next/dynamic'
+// import TinderCard from "react-tinder-card"
 
 export default function SwipeCard({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id, avaliableJobs, setAvaliableJobs }) {
 
-    // const DynamicComponentWithNoSSR = dynamic(
-    //     () => import('react-tinder-card'),
-    //     { ssr: false }
-    // )
+    const TinderCard = dynamic(
+        () => import('react-tinder-card'),
+        { ssr: false }
+    )
 
     const [savedJobs, setSavedJobs] = useState(() => {
         return JSON.parse(localStorage.getItem('saved-jobs')) || []

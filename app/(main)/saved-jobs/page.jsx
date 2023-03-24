@@ -1,4 +1,4 @@
-import JobCards from "./Jobcards"
+import JobCards from "./Jobcard"
 
 export default function SavedJobs() {
     return (

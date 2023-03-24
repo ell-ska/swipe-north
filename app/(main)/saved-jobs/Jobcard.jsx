@@ -1,6 +1,5 @@
-import '../../globalStyles/components/JobCards.css'
-import taxi from '../../../public/images/jobs/taxi-mobile.jpg'
-import Image from 'next/image'
+import './jobcards.css'
+import taxi from 'public/images/jobs/taxi-mobile.jpg'
 
 export default function JobCards() {
     return (

@@ -10,9 +10,9 @@ export default function SwipeCard({ companyName, jobTitle, shortDescription, lin
         { ssr: false }
     )
 
-    const [savedJobs, setSavedJobs] = useState(() => {
-        return JSON.parse(localStorage.getItem('saved-jobs')) || []
-    })
+    // const [savedJobs, setSavedJobs] = useState(() => {
+    //     return JSON.parse(localStorage.getItem('saved-jobs')) || []
+    // })
 
     // const [savedJobs, setSavedJobs] = useState(() => {
     //     return JSON.parse(localStorage.getItem('saved-jobs')) || []

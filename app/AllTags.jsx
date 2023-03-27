@@ -1,84 +1,71 @@
 'use client'
+import { useState, useEffect } from 'react'
+import { nanoid } from 'nanoid'
 import api from './dummyApi'
 import Tag from './Tag'
 
 const getAvailableTags = () => {
 
     let allAvailableTags = []
+    let uniqueAvailableTags = []
     
-    api.map(api => {
-        allAvailableTags = allAvailableTags.concat(api.tags)
+    api.map(job => {
+        allAvailableTags = allAvailableTags.concat(job.tags)
     })
 
     const uniqueTags = [...new Map(allAvailableTags.map(tag => [tag.name, tag])).values()]
-    console.log(uniqueTags)
 
-    let tagsNotActive = []
-
-    uniqueTags.map((tag) => {
-        tagsNotActive = tagsNotActive.concat({...tag, active: false})
-        
+    uniqueTags.map(tag => {
+        uniqueAvailableTags = uniqueAvailableTags.concat({...tag, active: false, id: nanoid()})
     })
-    console.log(tagsNotActive)
 
-    return uniqueTags
+    return uniqueAvailableTags
 }
 
 const AllTags = () => {
 
-    const availableTags = getAvailableTags()
+    const [tags, setTags] = useState(null)
+    // return JSON.parse(localStorage.getItem('tags')) || getAvailableTags()
 
-    // const storeMyTags = () => {
-
-    //     let allTags = availableTags
-    //     let updatedTags = []
+    useEffect(() => setTags(JSON.parse(localStorage.getItem('tags')) || getAvailableTags()), [])
     
-    //     const addedTag = allTags.find(tag => tag.name === e.target.innerHTML)
-    //     addedTag.active = true;
-    //     console.log(addedTag)
+    useEffect(() => {
+        localStorage.setItem('tags', JSON.stringify(tags))
+    }, [tags])
 
-    //     updatedTags.push(addedTag)
+    const changeTagState = (id) => {
         
-    //     setTags([...updatedTags])
-        
-    // }
+        const updatedTag = tags.find(tag => tag.id === id)
+        updatedTag.active = !updatedTag.active
 
-    // const [tags, setTags] = useState(() => {
-    //     return JSON.parse(localStorage.getItem('tags')) || updatedTags
-    // })
-    
-    // useEffect(() => {
-    //     // storeMyTags()
-    //     localStorage.setItem('tags', JSON.stringify(tags))
-    // }, [tags])
+        setTags([...tags])
 
-    
-    console.log(availableTags)
+    }
 
     return (
         <div className='tags-component'>
             <div className='tag-container-and-header'>
                 <h3>Arbetsområden</h3>
                 <div className="tag-container">
-                    {availableTags.map(tag => tag.category === 'field' && <Tag key={tag.name} color='blue'>{tag.name}</Tag>)}
+                    {tags !== null ? tags.map(tag => tag.category === 'field' && <Tag key={tag.name} {...tag} changeTagState={changeTagState} color='blue'>{tag.name}</Tag>) : null}
                 </div>
             </div>
             <div className='tag-container-and-header'>
                 <h3>Meriter</h3>
                 <div className="tag-container">
-                    {availableTags.map(tag => tag.category === 'qualification' && <Tag key={tag.name} color='green'>{tag.name}</Tag>)}
+                    {tags !== null ? tags.map(tag => tag.category === 'qualification' && <Tag key={tag.name} {...tag} changeTagState={changeTagState} color='green'>{tag.name}</Tag>) : null}
                 </div>
             </div>
             <div className='tag-container-and-header'>
                 <h3>Egenskaper</h3>
                 <div className="tag-container">
-                    {availableTags.map(tag => tag.category === 'ability' && <Tag key={tag.name} color='orange'>{tag.name}</Tag>)}
+                    {tags !== null ? tags.map(tag => tag.category === 'ability' && <Tag key={tag.name} {...tag} changeTagState={changeTagState} color='orange'>{tag.name}</Tag>) : null}
                 </div>
             </div>
             <div className='tag-container-and-header'>
                 <h3>Arbetssätt</h3>
                 <div className="tag-container">
-                    {availableTags.map(tag => tag.category === 'workstyle' && <Tag key={tag.name} color='red'>{tag.name}</Tag>)}
+                    {tags !== null ? tags.map(tag => tag.category === 'workstyle' && <Tag key={tag.name} {...tag} changeTagState={changeTagState} color='red'>{tag.name}</Tag>) : null}
                 </div>
             </div>
         </div>

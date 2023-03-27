@@ -1,12 +1,13 @@
 .container {
-    margin: 0 var(--font-size-4);
+    --margin-inline: 2rem;
+
+    margin: 1.5rem var(--margin-inline) 0;
 }
 
 .h1 {
     font-size: var(--font-size-2);
     font-weight: var(--font-weight-bold);
-    margin-bottom: var(--font-size-4);
-    width: fit-content;
+    margin-bottom: 2rem;
 }
 
 .h3 {
@@ -17,7 +18,7 @@
 .tagContainer {
     display: flex;
     flex-direction: column;
-    gap: var(--font-size-1);
+    gap: 1rem;
 }
 
 .tags {
@@ -27,6 +28,7 @@
 }
 
 .buttonAdded {
-    margin-top: var(--font-size-1);
-    width: -webkit-fill-available;
+    position: fixed;
+    bottom: 1.5rem;
+    width: calc(100% - (var(--margin-inline) * 2));
 }

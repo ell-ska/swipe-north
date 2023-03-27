@@ -10,17 +10,14 @@ import './globalStyles/components/tags.css'
 // connected to jobs
 // sorted alphabetically
 
-const Tag = ({ children, color }) => {
+const Tag = ({ children, color, changeTagState, id, active }) => {
 
-    const [isActive, setIsActive] = useState(false)
-    const tagClass = isActive ? color : 'disabled'
+    const tagClass = active ? color : 'disabled'
     
     return (
         <div
             className={`tag ${tagClass}`}
-            onClick={(e) => {
-                setIsActive(!isActive)
-            }}
+            onClick={() => changeTagState(id)}
         >{children}</div>
     )
 }

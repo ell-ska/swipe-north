@@ -28,29 +28,29 @@ const AllTags = () => {
 
     const availableTags = getAvailableTags()
 
-    const storeMyTags = () => {
+    // const storeMyTags = () => {
 
-        let allTags = availableTags
-        let updatedTags = []
+    //     let allTags = availableTags
+    //     let updatedTags = []
     
-        const addedTag = allTags.find(tag => tag.name === e.target.innerHTML)
-        addedTag.active = true;
-        console.log(addedTag)
+    //     const addedTag = allTags.find(tag => tag.name === e.target.innerHTML)
+    //     addedTag.active = true;
+    //     console.log(addedTag)
 
-        updatedTags.push(addedTag)
+    //     updatedTags.push(addedTag)
         
-        setTags([...updatedTags])
+    //     setTags([...updatedTags])
         
-    }
+    // }
 
-    const [tags, setTags] = useState(() => {
-        return JSON.parse(localStorage.getItem('tags')) || updatedTags
-    })
+    // const [tags, setTags] = useState(() => {
+    //     return JSON.parse(localStorage.getItem('tags')) || updatedTags
+    // })
     
-    useEffect(() => {
-        // storeMyTags()
-        localStorage.setItem('tags', JSON.stringify(tags))
-    }, [tags])
+    // useEffect(() => {
+    //     // storeMyTags()
+    //     localStorage.setItem('tags', JSON.stringify(tags))
+    // }, [tags])
 
     
     console.log(availableTags)
@@ -81,7 +81,6 @@ const AllTags = () => {
                     {availableTags.map(tag => tag.category === 'workstyle' && <Tag key={tag.name} color='red'>{tag.name}</Tag>)}
                 </div>
             </div>
-            
         </div>
     )
 }

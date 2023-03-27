@@ -1,7 +1,7 @@
 import styles from './profile.module.css'
 import '../../globalStyles/components/buttons.css'
 import '../../globalStyles/components/tags.css'
-import { AllTags } from '../../Tag'
+import AllTags from '../../AllTags'
 
 export default function Profile() {
 

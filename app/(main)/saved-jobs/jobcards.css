@@ -1,6 +1,6 @@
 .saved-jobs-title {
-    margin-top: 2rem;
     margin-left: 2rem;
+    margin-top: 2rem;
 }
 
 .job-card-container {
@@ -8,30 +8,30 @@
 }
 
 .jobcard {
-    display: flex;
-    padding: 0.9rem;
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
+    display: flex;
+    padding: 0.9rem;
 }
 
 .job-card-image {
-    width: 5rem;
-    height: 5rem;
     background-size: cover;
     border-radius: 0.5rem;
+    height: 5rem;
+    width: 5rem;
 }
 
 .card-description {
-    margin: 0.9rem;
     gap: 0.25rem;
+    margin: 0.9rem;
 }
 
 .company-name {
-    font-weight: var(--font-weight-bold);
     font-size: var(--font-size-2);
+    font-weight: var(--font-weight-bold);
 }
 
 .job-title {
-    font-weight: var(--font-weight-medium);
     font-size: var(--font-size-1);
+    font-weight: var(--font-weight-medium);
 }

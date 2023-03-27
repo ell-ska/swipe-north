@@ -1,4 +1,5 @@
-import JobCards from "./Jobcards"
+import JobCards from './Jobcards'
+import SeeMore from './See-more'
 
 export default function SavedJobs() {
     return (
@@ -7,7 +8,6 @@ export default function SavedJobs() {
         <div className='job-card-container'>
             <JobCards></JobCards>
        </div>
-            
        </>
     )
 }

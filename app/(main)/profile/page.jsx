@@ -9,7 +9,7 @@ export default function Profile() {
            <div className={styles.container}>
                 <h1 className={styles.h1}>Mina taggar</h1>
                 <AllTags />
-                <button className={`button ${styles.buttonAdded}`}>Spara</button>
+                {/* <button className={`button ${styles.buttonAdded}`}>Spara</button> */}
            </div>
     )
 }

@@ -1,4 +1,3 @@
-'use client'
 import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import api from './dummyApi'
@@ -26,6 +25,7 @@ const AllTags = () => {
 
     const [tags, setTags] = useState(() => {
         return JSON.parse(localStorage.getItem('tags')) || getAvailableTags()
+        // return typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('tags')) : getAvailableTags()
     })
     
     useEffect(() => {

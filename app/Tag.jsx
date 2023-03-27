@@ -1,5 +1,4 @@
 'use client'
-import { useState } from 'react'
 
 // render out all tags
 // activate tags
@@ -15,9 +14,7 @@ const Tag = ({ children, color, changeTagState, id, active }) => {
     return (
         <div
             className={`tag ${tagClass}`}
-            onClick={() => {
-                changeTagState(id)
-            }}
+            onClick={() => changeTagState(id)}
         >{children}</div>
     )
 }

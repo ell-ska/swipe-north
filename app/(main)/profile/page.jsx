@@ -1,4 +1,3 @@
-'use client'
 import styles from './profile.module.css'
 import '../../globalStyles/components/buttons.css'
 import '../../globalStyles/components/tags.css'

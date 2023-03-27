@@ -1,3 +1,4 @@
+'use client'
 import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import api from './dummyApi'
@@ -23,10 +24,10 @@ const getAvailableTags = () => {
 
 const AllTags = () => {
 
-    const [tags, setTags] = useState(() => {
-        return JSON.parse(localStorage.getItem('tags')) || getAvailableTags()
-        // return typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('tags')) : getAvailableTags()
-    })
+    const [tags, setTags] = useState(null)
+    // return JSON.parse(localStorage.getItem('tags')) || getAvailableTags()
+
+    useEffect(() => setTags(JSON.parse(localStorage.getItem('tags')) || getAvailableTags()), [])
     
     useEffect(() => {
         localStorage.setItem('tags', JSON.stringify(tags))
@@ -46,25 +47,25 @@ const AllTags = () => {
             <div className='tag-container-and-header'>
                 <h3>Arbetsområden</h3>
                 <div className="tag-container">
-                    {tags.map(tag => tag.category === 'field' && <Tag key={tag.name} {...tag} changeTagState={changeTagState} color='blue'>{tag.name}</Tag>)}
+                    {tags !== null ? tags.map(tag => tag.category === 'field' && <Tag key={tag.name} {...tag} changeTagState={changeTagState} color='blue'>{tag.name}</Tag>) : null}
                 </div>
             </div>
             <div className='tag-container-and-header'>
                 <h3>Meriter</h3>
                 <div className="tag-container">
-                    {tags.map(tag => tag.category === 'qualification' && <Tag key={tag.name} {...tag} changeTagState={changeTagState} color='green'>{tag.name}</Tag>)}
+                    {tags !== null ? tags.map(tag => tag.category === 'qualification' && <Tag key={tag.name} {...tag} changeTagState={changeTagState} color='green'>{tag.name}</Tag>) : null}
                 </div>
             </div>
             <div className='tag-container-and-header'>
                 <h3>Egenskaper</h3>
                 <div className="tag-container">
-                    {tags.map(tag => tag.category === 'ability' && <Tag key={tag.name} {...tag} changeTagState={changeTagState} color='orange'>{tag.name}</Tag>)}
+                    {tags !== null ? tags.map(tag => tag.category === 'ability' && <Tag key={tag.name} {...tag} changeTagState={changeTagState} color='orange'>{tag.name}</Tag>) : null}
                 </div>
             </div>
             <div className='tag-container-and-header'>
                 <h3>Arbetssätt</h3>
                 <div className="tag-container">
-                    {tags.map(tag => tag.category === 'workstyle' && <Tag key={tag.name} {...tag} changeTagState={changeTagState} color='red'>{tag.name}</Tag>)}
+                    {tags !== null ? tags.map(tag => tag.category === 'workstyle' && <Tag key={tag.name} {...tag} changeTagState={changeTagState} color='red'>{tag.name}</Tag>) : null}
                 </div>
             </div>
         </div>

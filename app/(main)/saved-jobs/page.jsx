@@ -1,5 +1,4 @@
-import JobCards from './Jobcards'
-import SeeMore from './See-more'
+import JobCards from "./Jobcard"
 
 export default function SavedJobs() {
     return (

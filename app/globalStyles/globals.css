@@ -12,7 +12,8 @@ body {
   flex-direction: column;
   font-family: var(--font-primary);
   font-weight: var(--font-weight-regular);
-  min-height: 100vh;
+  min-height: 100svh;
+  overflow-x: hidden;
 }
 
 img, svg {

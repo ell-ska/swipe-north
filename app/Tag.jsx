@@ -1,5 +1,7 @@
 'use client'
 import { useState } from 'react'
+import api from './dummyApi'
+import './globalStyles/components/tags.css'
 
 // render out all tags
 // activate tags

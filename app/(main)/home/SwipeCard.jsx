@@ -10,13 +10,8 @@ export default function SwipeCard({ companyName, jobTitle, shortDescription, lin
         { ssr: false }
     )
 
-    // const [savedJobs, setSavedJobs] = useState(() => {
-    //     return JSON.parse(localStorage.getItem('saved-jobs')) || []
-    // })
-
-    // const [savedJobs, setSavedJobs] = useState(() => {
-    //     return JSON.parse(localStorage.getItem('saved-jobs')) || []
-    // })
+    const [savedJobs, setSavedJobs] = useState([])
+    // useEffect(() => setSavedJobs(JSON.parse(localStorage.getItem('saved-jobs')) || []), [])
 
     // useEffect(() => {
     //     localStorage.setItem('saved-jobs', JSON.stringify(savedJobs))
@@ -25,22 +20,25 @@ export default function SwipeCard({ companyName, jobTitle, shortDescription, lin
     const onSwipe = (direction, id) => {
         if (direction === 'up') {
             const jobToSave = avaliableJobs.find(job => job.id === id)
-            setSavedJobs(() => [...savedJobs, jobToSave])
+            console.log(jobToSave)
+            setSavedJobs([...savedJobs, jobToSave])
+            console.log(savedJobs)
+            console.log('saved')
         }
 
         const remainingJobs = avaliableJobs.filter(job => job.id != id)
         setAvaliableJobs(remainingJobs)
-        console.log(remainingJobs)
+        // console.log(remainingJobs)
     }
     
     const onCardLeftScreen = (myIdentifier) => {
-        console.log(myIdentifier + ' left the screen')
+        // console.log(myIdentifier + ' left the screen')
     }
 
     return (
         <TinderCard
             className="swipe"
-            // onSwipe={direction => onSwipe(direction, id)}
+            onSwipe={direction => onSwipe(direction, id)}
             // onCardLeftScreen={() => onCardLeftScreen('fooBar')}
         >
             <div className="swipe__image" style={{backgroundImage: `url(${img.src})`}}>

@@ -1,10 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import SwipeButtons from '../SwipeButtons'
 import api from '../dummyApi'
 import styles from './seeMoreSwipe.module.css'
-import arrowLeft from '../../public/icons/arrow-left.svg'
-import '../globalStyles/components/buttons.css'
-import { Buttons } from '../(main)/home/page'
+import arrowLeft from 'public/icons/arrow-left.svg'
 
 export default function SeeMoreSwipe({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id, avaliableJobs, setAvaliableJobs }) {
 
@@ -38,7 +37,7 @@ export default function SeeMoreSwipe({ companyName, jobTitle, shortDescription, 
                     <p className={styles.description}>{api[0].shortDescription}</p>
                 </div>
                 <div  className={styles.buttonsContainer}>
-                    <Buttons />
+                    <SwipeButtons></SwipeButtons>
                 </div>
                 
                 <Link href={api[0].linkToJobApplication} className={styles.buttonContainer}>

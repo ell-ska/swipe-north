@@ -1,25 +1,25 @@
-import './globalStyles/variables.css'
-import './globalStyles/globals.css'
-import './globalStyles/typography.css'
-import './globalStyles/components/tags.css'
+'use client'
+import { useState } from 'react'
+import Header from './Header'
+import SwipeButtons from './SwipeButtons'
+import api from './dummyApi'
+import './globalStyles/home.css'
 import './globalStyles/components/buttons.css'
-import logo from '../public/icons/skelleftea-logo.svg'
-import Image from 'next/image'
-import styles from './globalStyles/components/login.module.css'
-import Link from 'next/link'
+import SwipeCard from './SwipeCard'
 
-export default function Login() {
-  return (
-    <div className={styles.loginComponent}>
-        <div  className={styles.image}>
-          <Image src={logo} alt='Skelleftea logo' width={125} height={67}/>
+export default function Home() {
+
+    const [avaliableJobs, setAvaliableJobs] = useState(() => api)
+
+    return (
+      <>
+        <Header></Header>
+        <div className='home'>
+            <div className="swipe-container">
+                {avaliableJobs.map(job => <SwipeCard key={job.jobTitle} {...job} avaliableJobs={avaliableJobs} setAvaliableJobs={setAvaliableJobs}></SwipeCard>)}
+            </div>
+            <SwipeButtons />
         </div>
-        <div className={styles.loginContainer}>
-            <Link href='/home'>
-              <button className={`button ${styles.button}`}>Logga in</button>
-            </Link>
-            <button className={styles.createAccount}>Eller skapa ett konto</button>
-        </div>
-    </div>
-  )
+      </>
+    )
 }

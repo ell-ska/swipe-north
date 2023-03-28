@@ -25,9 +25,8 @@ const getAvailableTags = () => {
 const AllTags = () => {
 
     const [tags, setTags] = useState(null)
-    // return JSON.parse(localStorage.getItem('tags')) || getAvailableTags()
-
     useEffect(() => setTags(JSON.parse(localStorage.getItem('tags')) || getAvailableTags()), [])
+    // return JSON.parse(localStorage.getItem('tags')) || getAvailableTags()
     
     useEffect(() => {
         localStorage.setItem('tags', JSON.stringify(tags))

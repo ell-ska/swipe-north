@@ -11,9 +11,9 @@ export default function SeeMoreSwipe({ companyName, jobTitle, shortDescription, 
     return (
         <>  
             <div className={styles.imageContainer}>
-                <Image className={styles.image} src={(api[0].img)} />
+                <Image className={styles.image} src={(api[0].img)} alt='test'/>
                 <Link href='/home' className={styles.arrow}>
-                    <Image className={styles.arrowLeft} src={arrowLeft} />
+                    <Image className={styles.arrowLeft} src={arrowLeft} alt='arrow-left' />
                 </Link>
             </div>
             <div className={styles.contentContainer}>
@@ -25,7 +25,7 @@ export default function SeeMoreSwipe({ companyName, jobTitle, shortDescription, 
                     <div className={styles.tags}>
                         {api[0].tags.map((tag) => {
                             return (
-                                <div>
+                                <div key={tag.name}>
                                     {tag.name}
                                 </div> 
                             )

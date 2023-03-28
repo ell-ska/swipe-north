@@ -1,7 +1,5 @@
 import './jobcards.css'
-import taxi from 'public/images/jobs/taxi-mobile.jpg'
 import Link from 'next/link'
-// import { savedJobsAtom } from '@/app/atoms'
 
 export default function JobCards({img, companyName, jobTitle}) {
     return (

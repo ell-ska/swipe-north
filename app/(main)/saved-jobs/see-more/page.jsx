@@ -1,10 +1,10 @@
-import styles from '../../globalStyles/components/see-more.css'
-import taxi from '../../../public/images/jobs/taxi-mobile.jpg'
-import {Tag} from '../../Tag'
-import '../../globalStyles/components/buttons.css'
-import trashcan from '/public/icons/trashcan.svg'
-import arrowLeft from '/public/icons/arrow-left.svg'
-import Image from "next/image"
+import '../../../globalStyles/components/see-more.css'
+import taxi from 'public/images/jobs/taxi-mobile.jpg'
+// import { Tag } from '../../../Tag'
+import '../../../globalStyles/components/buttons.css'
+import trashcan from 'public/icons/trashcan.svg'
+import arrowLeft from 'public/icons/arrow-left.svg'
+import Image from 'next/image'
 
 export default function SeeMore() {
     return (
@@ -18,8 +18,8 @@ export default function SeeMore() {
                 <p className='see-more-job'>Skellefteå Taxi</p>
                 <p className='see-more-jobtitle'>Taxichaufför</p>
                 <div className='see-more-tags'>
-                    <Tag color='blue'>Taxi</Tag>
-                    <Tag color='green'>Körkort</Tag>
+                    {/* <Tag color='blue'>Taxi</Tag> */}
+                    {/* <Tag color='green'>Körkort</Tag> */}
                 </div>
                 <div className='see-more-description'>
                     <p className='see-more-beskrivning'>Beskrivning</p>

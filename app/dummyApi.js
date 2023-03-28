@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid'
 /*
 8-10 jobb
 companyName
@@ -26,7 +25,7 @@ const api = [
     {
         companyName: 'Cabonline',
         jobTitle: 'Taxichaufför',
-        shortDescription: 'Vi söker förare till oss på Cabonline. Väx med oss – kör med oss! Att köra taxi är ett socialt och viktigt jobb, där du får träffa människor och hjälpa dem i deras vardag.',
+        shortDescription: 'Vi söker förare till oss på Cabonline. Väx med oss - kör med oss! Att köra taxi är ett socialt och viktigt jobb, där du får träffa människor och hjälpa dem i deras vardag.',
         linkToJobApplication: 'https://www.cabonline.com/jobbannonser',
         tags: [
             {
@@ -47,7 +46,7 @@ const api = [
             }
         ],
         img: taxiDriverImg,
-        id: nanoid()
+        id: '09a873fb-40ef-4810-bd5e-96511d600d38'
     },
     {
         companyName: 'Foodora',
@@ -69,7 +68,7 @@ const api = [
             }
         ],
         img: foodDeliveryImg,
-        id: nanoid()
+        id: 'cc7f98fa-bd3f-4b51-95dc-569af5f9e4f7'
     },
     {
         companyName: 'Akutmottagning Skellefteå',
@@ -91,7 +90,7 @@ const api = [
             }
         ],
         img: nurseImg,
-        id: nanoid()
+        id: 'f96e9f1e-2f27-413e-8eca-8c1097ded076'
     },
     {
         companyName: 'Simplex Bemanning',
@@ -113,7 +112,7 @@ const api = [
             }
         ],
         img: tireChangerImg,
-        id: nanoid()
+        id: '6ec521ba-0d02-48bb-9c6e-6ac51c2a4003'
     },
     {
         companyName: 'ENKV',
@@ -139,7 +138,7 @@ const api = [
             }
         ],
         img: personalAssistantImg,
-        id: nanoid()
+        id: '2b8ee29b-1bb1-465a-8838-9658269ac789'
     },
     {
         companyName: 'Minnovation International AB',
@@ -161,7 +160,7 @@ const api = [
             }
         ],
         img: technicianImg,
-        id: nanoid()
+        id: 'ba917c2c-5d9a-43a3-a337-75a72a96d1f9'
     },
     {
         companyName: 'PostNord',
@@ -187,7 +186,7 @@ const api = [
             }
         ],
         img: truckDriverImg,
-        id: nanoid()
+        id: '3ecb29b0-4ac0-471e-9a1a-d294893d8468'
     },
     {
         companyName: 'First Unit AB',
@@ -209,7 +208,7 @@ const api = [
             }
         ],
         img: accountManagerImg,
-        id: nanoid()
+        id: '05772d35-23ac-46ae-add4-672182a6d48a'
     },
     {
         companyName: 'Skellefteå kommun',
@@ -235,7 +234,7 @@ const api = [
             }
         ],
         img: psychologistImg,
-        id: nanoid()
+        id: '0fcff30d-7efc-4644-bd5b-3b6ba7efa98c'
     },
     {
         companyName: 'Skellefteå kommun',
@@ -257,7 +256,7 @@ const api = [
             }
         ],
         img: receptionistImg,
-        id: nanoid()
+        id: 'e9927841-8c9e-45fd-8b49-4e32593f1c8f'
     },
 ]
 

@@ -1,22 +1,31 @@
 'use client'
 import './globalStyles/components/tags.css'
 
-// render out all tags
-// activate tags
-// save in local storage
-// deactivate tags
-// connected to jobs
-// sorted alphabetically
+const Tag = ({ changeTagState, id, active, category, name }) => {
 
-const Tag = ({ children, color, changeTagState, id, active }) => {
+    let color
+    switch (category) {
+        case 'field':
+            color = 'blue'
+            break
+        case 'qualification':
+            color = 'green'
+            break
+        case 'ability':
+            color = 'orange'
+            break
+        case 'workstyle':
+            color = 'red'
+            break
+    }
 
     const tagClass = active ? color : 'disabled'
     
     return (
         <div
             className={`tag ${tagClass}`}
-            onClick={() => changeTagState(id)}
-        >{children}</div>
+            onClick={() => changeTagState ? changeTagState(id) : null}
+        >{name}</div>
     )
 }
 

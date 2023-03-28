@@ -17,6 +17,10 @@ body {
   overflow-x: hidden;
 }
 
+body:has(.home) {
+  overflow: hidden;
+}
+
 img, svg {
   display: block;
   max-width: 100%;

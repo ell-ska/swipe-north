@@ -4,12 +4,12 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import Menu from "./Menu"
-import styles from '../globalStyles/components/header.module.css'
-import logo from '../../public/icons/skelleftea-logo.svg'
-import heart from '../../public/icons/heart-filled.svg'
+import styles from './globalStyles/header.module.css'
+import logo from '../public/icons/skelleftea-logo.svg'
+import heart from '../public/icons/heart-filled.svg'
 
 
-function Nav() {
+function Header() {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -31,7 +31,7 @@ function Nav() {
                     <div className={`${styles.hamburgerMenuLine}  ${menuOpen ? styles.hide : ''}`}></div>
                     <div className={`${styles.hamburgerMenuLine}  ${menuOpen ? styles.positionLineThree : ''}`}></div>
                 </div>
-                <Link href='/home' className={styles.navItem}>
+                <Link href='/' className={styles.navItem}>
                     <Image src={logo} alt='Skelleftea logo'/>
                 </Link>
                 <Link href='/saved-jobs' className={styles.navItem}>
@@ -43,4 +43,4 @@ function Nav() {
     )
 }
 
-export default Nav
+export default Header

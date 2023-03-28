@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from "react"
 import dynamic from 'next/dynamic'
+// import { redirect } from 'next/navigation'
 // import TinderCard from "react-tinder-card"
 
 export default function SwipeCard({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id, avaliableJobs, setAvaliableJobs }) {
@@ -10,37 +11,43 @@ export default function SwipeCard({ companyName, jobTitle, shortDescription, lin
         { ssr: false }
     )
 
-    // const [savedJobs, setSavedJobs] = useState(() => {
-    //     return JSON.parse(localStorage.getItem('saved-jobs')) || []
-    // })
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    useEffect(() => setIsLoggedIn(JSON.parse(sessionStorage.getItem('is-logged-in') || false)), [])
 
-    // const [savedJobs, setSavedJobs] = useState(() => {
-    //     return JSON.parse(localStorage.getItem('saved-jobs')) || []
-    // })
+    const [savedJobs, setSavedJobs] = useState([])
+    useEffect(() => setSavedJobs(JSON.parse(localStorage.getItem('saved-jobs')) || []), [])
 
     // useEffect(() => {
     //     localStorage.setItem('saved-jobs', JSON.stringify(savedJobs))
     // }, [savedJobs])
 
     const onSwipe = (direction, id) => {
+        if (!isLoggedIn) {
+            // redirect('/login')
+            window.location.pathname = '/login'
+        }
+
         if (direction === 'up') {
             const jobToSave = avaliableJobs.find(job => job.id === id)
-            setSavedJobs(() => [...savedJobs, jobToSave])
+            console.log(jobToSave)
+            setSavedJobs([...savedJobs, jobToSave])
+            console.log(savedJobs)
+            console.log('saved')
         }
 
         const remainingJobs = avaliableJobs.filter(job => job.id != id)
         setAvaliableJobs(remainingJobs)
-        console.log(remainingJobs)
+        // console.log(remainingJobs)
     }
     
     const onCardLeftScreen = (myIdentifier) => {
-        console.log(myIdentifier + ' left the screen')
+        // console.log(myIdentifier + ' left the screen')
     }
 
     return (
         <TinderCard
             className="swipe"
-            // onSwipe={direction => onSwipe(direction, id)}
+            onSwipe={direction => onSwipe(direction, id)}
             // onCardLeftScreen={() => onCardLeftScreen('fooBar')}
         >
             <div className="swipe__image" style={{backgroundImage: `url(${img.src})`}}>

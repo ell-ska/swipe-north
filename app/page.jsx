@@ -18,20 +18,20 @@ export default function Home() {
     const [previousJob, setPreviousJob] = useState(null)
     const currentJob = avaliableJobs[avaliableJobs.length - 1]
 
-    const onReset = () => {
-        // set avaliable jobs to all jobs again EXCEPT for already saved jobs
-        console.log(api)
-        let newAvaliableJobs = []
+    // const onReset = () => {
+    //     // set avaliable jobs to all jobs again EXCEPT for already saved jobs
+    //     console.log(api)
+    //     let newAvaliableJobs = []
 
-        savedJobs.map(savedJob => {
-            const test = api.filter(job => job.id === savedJob.id)
-            newAvaliableJobs = test
-        })
+    //     savedJobs.map(savedJob => {
+    //         const test = api.filter(job => job.id === savedJob.id)
+    //         newAvaliableJobs = test
+    //     })
 
-        console.log(newAvaliableJobs)
+    //     console.log(newAvaliableJobs)
 
-        // setAvaliableJobs(newAvaliableJobs)
-    }
+    //     // setAvaliableJobs(newAvaliableJobs)
+    // }
 
     const onGoBack = () => {
         if (previousJob && !avaliableJobs.find(job => job.id === previousJob.id)) {

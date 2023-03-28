@@ -12,7 +12,7 @@ export default function SavedJobs() {
       <h3 className='saved-jobs-title'>Sparade jobb</h3>
       <div className='job-card-container'>
         {savedJobs.map(job => {
-          return <JobCard></JobCard>
+          // return <JobCard></JobCard>
         })}
       </div>
     </>

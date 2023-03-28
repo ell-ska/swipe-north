@@ -1,7 +1,8 @@
 'use client'
-import { useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useAtom } from 'jotai'
+import { loggedInAtom } from '@/app/atoms'
 import '../../globalStyles/variables.css'
 import '../../globalStyles/globals.css'
 import '../../globalStyles/typography.css'
@@ -12,7 +13,8 @@ import logo from 'public/icons/skelleftea-logo.svg'
 
 export default function Login() {
 
-  useEffect(() => sessionStorage.setItem('is-logged-in', true), [])
+  const [isLoggedIn, setIsLoggedIn] = useAtom(loggedInAtom)
+  setIsLoggedIn(true)
 
   return (
     <div className={styles.loginComponent}>

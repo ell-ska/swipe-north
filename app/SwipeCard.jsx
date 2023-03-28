@@ -1,34 +1,12 @@
 'use client'
 import dynamic from 'next/dynamic'
-import { useAtom } from 'jotai'
-import { savedJobsAtom, loggedInAtom } from './atoms'
 
-export default function SwipeCard({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id, avaliableJobs, setAvaliableJobs }) {
+export default function SwipeCard({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id, onSwipe }) {
 
     const TinderCard = dynamic(
         () => import('react-tinder-card'),
         { ssr: false }
     )
-
-    const [isLoggedIn] = useAtom(loggedInAtom)
-    const [savedJobs, setSavedJobs] = useAtom(savedJobsAtom)
-
-    const onSwipe = (direction, id) => {
-
-        if (!isLoggedIn) {
-            window.location.pathname = '/login'
-            return
-        }
-
-        if (direction === 'up') {
-            const jobToSave = avaliableJobs.find(job => job.id === id)
-            setSavedJobs([...savedJobs, jobToSave])
-        }
-
-        const remainingJobs = avaliableJobs.filter(job => job.id != id)
-        setAvaliableJobs(remainingJobs)
-
-    }
 
     return (
         <TinderCard

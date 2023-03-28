@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from "react"
 import dynamic from 'next/dynamic'
+// import { redirect } from 'next/navigation'
 // import TinderCard from "react-tinder-card"
 
 export default function SwipeCard({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id, avaliableJobs, setAvaliableJobs }) {
@@ -10,14 +11,22 @@ export default function SwipeCard({ companyName, jobTitle, shortDescription, lin
         { ssr: false }
     )
 
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    useEffect(() => setIsLoggedIn(JSON.parse(sessionStorage.getItem('is-logged-in') || false)), [])
+
     const [savedJobs, setSavedJobs] = useState([])
-    // useEffect(() => setSavedJobs(JSON.parse(localStorage.getItem('saved-jobs')) || []), [])
+    useEffect(() => setSavedJobs(JSON.parse(localStorage.getItem('saved-jobs')) || []), [])
 
     // useEffect(() => {
     //     localStorage.setItem('saved-jobs', JSON.stringify(savedJobs))
     // }, [savedJobs])
 
     const onSwipe = (direction, id) => {
+        if (!isLoggedIn) {
+            // redirect('/login')
+            window.location.pathname = '/login'
+        }
+
         if (direction === 'up') {
             const jobToSave = avaliableJobs.find(job => job.id === id)
             console.log(jobToSave)

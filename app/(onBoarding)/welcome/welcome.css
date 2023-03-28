@@ -1,0 +1,25 @@
+.welcome-page {
+    margin: 2rem;
+}
+
+.welcome {
+    margin-top: 1.5rem;
+    font-size: var(--font-size-4);
+    font-weight: var(--font-weight-regular);
+}
+
+.choose-tags {
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-bold);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.save-tags {
+    margin-top: 3rem;
+    width: 100%;
+}
+
+.save-tags:hover {
+    cursor: pointer;
+}

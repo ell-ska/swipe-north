@@ -16,10 +16,5 @@
 }
 
 .save-tags {
-    margin-top: 3rem;
     width: 100%;
-}
-
-.save-tags:hover {
-    cursor: pointer;
 }

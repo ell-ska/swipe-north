@@ -1,10 +1,17 @@
 .see-more-image {
-    display: flex;
     aspect-ratio: 1/1;
     background-size: cover;
-    justify-content: space-between;
+    position: relative;
+}
+
+.see-more-overlay {
     align-items: flex-start;
+    background-color: var(--color-primary-25);
+    display: flex;
+    inset: 0;
+    justify-content: space-between;
     padding: 2rem;
+    position: absolute;
 }
 
 .see-more-content {
@@ -30,6 +37,7 @@
 .see-more-job {
     font-size: var(--font-size-2);
     font-weight: var(--font-weight-bold);
+    margin-bottom: 4px;
 }
 
 .see-more-jobtitle {

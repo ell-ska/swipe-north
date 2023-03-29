@@ -7,6 +7,6 @@ export default function SavedJobsSeeMore({ params }) {
     const currentJob = api.find(job => job.id === id)
 
     return (
-        <SeeMore {...currentJob}></SeeMore>
+        <SeeMore {...currentJob} previousPage={'/saved-jobs'} ></SeeMore>
     )
 }

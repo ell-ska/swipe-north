@@ -28,7 +28,7 @@ export default function SwipeCard({ companyName, jobTitle, shortDescription, lin
                             <h3>{companyName}</h3>
                             <h4>{jobTitle}</h4>
                         </div>
-                        <Link href={`/${id}`} className='pressable'>
+                        <Link className='swipe__button pressable' href={`/${id}`}>
                             <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 9L9 1L17 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>

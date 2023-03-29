@@ -44,14 +44,14 @@ export default function Home() {
 
     const onSwipe = (direction, id) => {
 
-        if (!isLoggedIn) {
-            window.location.pathname = '/login'
-            return
-        }
-
         const currentJob = avaliableJobs.find(job => job.id === id)
         
         if (direction === 'up') {
+
+            if (!isLoggedIn) {
+                window.location.pathname = '/login'
+            }
+
             setSavedJobs([...savedJobs, currentJob])
         }
         

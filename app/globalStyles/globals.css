@@ -21,6 +21,10 @@ body:has(.home) {
   overflow: hidden;
 }
 
+body:has(.menu) {
+  overflow: hidden;
+}
+
 img, svg {
   display: block;
   max-width: 100%;

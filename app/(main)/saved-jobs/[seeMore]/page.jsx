@@ -35,7 +35,6 @@ export default function SeeMore({ params }) {
                     <button className='button see-more-button'>Sök jobbet</button>
                 </Link>
             </div>
-
         </div>
        </>
     )

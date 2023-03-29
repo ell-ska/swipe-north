@@ -1,12 +1,12 @@
 'use client'
 import dynamic from 'next/dynamic'
 
-export default function SwipeCard({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id, onSwipe }) {
+const TinderCard = dynamic(
+    () => import('react-tinder-card'),
+    { ssr: false }
+)
 
-    const TinderCard = dynamic(
-        () => import('react-tinder-card'),
-        { ssr: false }
-    )
+export default function SwipeCard({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id, onSwipe }) {
 
     return (
         <TinderCard

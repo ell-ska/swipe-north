@@ -1,5 +1,6 @@
 'use client'
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
 const TinderCard = dynamic(
     () => import('react-tinder-card'),
@@ -27,11 +28,11 @@ export default function SwipeCard({ companyName, jobTitle, shortDescription, lin
                             <h3>{companyName}</h3>
                             <h4>{jobTitle}</h4>
                         </div>
-                        <button className="swipe__see-more">
+                        <Link href={`/${id}`} className='pressable'>
                             <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 9L9 1L17 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

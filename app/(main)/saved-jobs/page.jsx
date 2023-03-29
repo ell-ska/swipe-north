@@ -1,4 +1,5 @@
 'use client'
+import Header from '@/app/Header'
 import JobCard from './Jobcard'
 import { useAtom } from 'jotai'
 import { savedJobsAtom } from '@/app/atoms'
@@ -6,13 +7,16 @@ import './jobcards.css'
 
 export default function SavedJobs() {
 
-  const [savedJobs, setSavedJobs] = useAtom(savedJobsAtom)
+  const [savedJobs] = useAtom(savedJobsAtom)
 
   return (
     <>
-      <h3 className='saved-jobs-title'>Sparade jobb</h3>
-      <div className='job-card-container'>
-        {savedJobs.map(job => <JobCard key={job.id} {...job}></JobCard>)}
+      <Header></Header>
+      <div className="saved-jobs">
+        <h3 className='saved-jobs-title'>Sparade jobb</h3>
+        <div className='job-card-container'>
+          {savedJobs.map(job => <JobCard key={job.id} {...job}></JobCard>)}
+        </div>
       </div>
     </>
   );

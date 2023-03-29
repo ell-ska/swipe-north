@@ -1,4 +1,5 @@
 'use client'
+import { useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useAtom } from 'jotai'
@@ -14,7 +15,6 @@ import logo from 'public/icons/skelleftea-logo.svg'
 export default function Login() {
 
   const [isLoggedIn, setIsLoggedIn] = useAtom(loggedInAtom)
-  setIsLoggedIn(true)
 
   return (
     <div className={styles.loginComponent}>
@@ -23,7 +23,7 @@ export default function Login() {
         </div>
         <div className={styles.loginContainer}>
             <Link href='/welcome'>
-              <button className={`button ${styles.button}`}>Logga in</button>
+              <button className={`button ${styles.button}`} onClick={() => setIsLoggedIn(true)}>Logga in</button>
             </Link>
             <button className={styles.createAccount}>Eller skapa ett konto</button>
         </div>

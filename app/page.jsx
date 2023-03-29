@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { useAtom } from 'jotai'
 import { savedJobsAtom, loggedInAtom, avaliableJobsAtom } from './atoms'
 import Header from './Header'
@@ -12,26 +13,23 @@ import swipeOutImage from 'public/images/swipe-out-of-cards.jpg'
 
 export default function Home() {
 
+    const router = useRouter()
+
     const [isLoggedIn] = useAtom(loggedInAtom)
     const [avaliableJobs, setAvaliableJobs] = useAtom(avaliableJobsAtom)
     const [savedJobs, setSavedJobs] = useAtom(savedJobsAtom)
     const [previousJob, setPreviousJob] = useState(null)
     const currentJob = avaliableJobs[avaliableJobs.length - 1]
 
-    // const onReset = () => {
-    //     // set avaliable jobs to all jobs again EXCEPT for already saved jobs
-    //     console.log(api)
-    //     let newAvaliableJobs = []
+    const onReset = () => {
+        let newAvaliableJobs = api
 
-    //     savedJobs.map(savedJob => {
-    //         const test = api.filter(job => job.id === savedJob.id)
-    //         newAvaliableJobs = test
-    //     })
+        savedJobs.map(savedJob => {
+            newAvaliableJobs = newAvaliableJobs.filter(job => job.id !== savedJob.id)
+        })
 
-    //     console.log(newAvaliableJobs)
-
-    //     // setAvaliableJobs(newAvaliableJobs)
-    // }
+        setAvaliableJobs(newAvaliableJobs)
+    }
 
     const onGoBack = () => {
         if (previousJob && !avaliableJobs.find(job => job.id === previousJob.id)) {
@@ -48,11 +46,11 @@ export default function Home() {
         
         if (direction === 'up') {
 
-            if (!isLoggedIn) {
-                window.location.pathname = '/login'
-            }
-
             setSavedJobs([...savedJobs, currentJob])
+
+            if (!isLoggedIn) {
+                router.push('/login')
+            }
         }
         
         const remainingJobs = avaliableJobs.filter(job => job.id != id)

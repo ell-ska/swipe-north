@@ -10,6 +10,8 @@ import api from './dummyApi'
 import './globalStyles/home.css'
 import './globalStyles/components/buttons.css'
 import swipeOutImage from 'public/images/swipe-out-of-cards.jpg'
+import Link from 'next/link'
+import getFilteredJobs from './getFilteredJobs'
 
 export default function Home() {
 
@@ -64,20 +66,31 @@ export default function Home() {
         <Header></Header>
         <div className='home'>
             <div className="swipe-container">
-                <div className="swipe swipe--out">
-                    <div className="swipe__image" style={{backgroundImage: `url(${swipeOutImage.src})`}}>
-                        <div className="swipe__overlay">
-                            <div className="swipe--out__content">
-                                <h2>Du har nu sett alla tillgängliga jobb!</h2>
-                                <h3>Men alla förtjänar en andra chans, eller hur?</h3>
-                            </div>
-                            <div className="swipe--out__footer">
-                                <button className="button" onClick={() => currentJob === undefined ? onReset() : null}>Börja om</button>
-                                <p>när du börjar om rensas din historik men du behåller dina sparade jobb</p>
+                {getFilteredJobs() ? (
+                    <div className="swipe swipe--out">
+                        <div className="swipe__image" style={{backgroundImage: `url(${swipeOutImage.src})`}}>
+                            <div className="swipe__overlay">
+                                <div className="swipe--out__content">
+                                    <h2>Du har nu sett alla tillgängliga jobb!</h2>
+                                    <h3>Men alla förtjänar en andra chans, eller hur?</h3>
+                                </div>
+                                <div className="swipe--out__footer">
+                                    <button className="button" onClick={() => currentJob === undefined ? onReset() : null}>Börja om</button>
+                                    <p>när du börjar om rensas din historik men du behåller dina sparade jobb</p>
+                                </div>
                             </div>
                         </div>
+                    </div> 
+
+                ) : (
+                    <div className='swipe-last'>
+                        <h2 className='swipe-text'>Nu finns det tyvärr inga fler jobb som vi tror passar dig!</h2>
+                        <Link href='/saved-jobs'>
+                            <div className='button swipe-button'>Se dina sparade jobb</div>
+                        </Link>
                     </div>
-                </div>
+                )}
+
                 {avaliableJobs.map(job => <SwipeCard key={job.jobTitle} {...job} onSwipe={onSwipe} ></SwipeCard>)}
             </div>
             <SwipeButtons onSwipe={onSwipe} currentJob={currentJob} onGoBack={onGoBack} />

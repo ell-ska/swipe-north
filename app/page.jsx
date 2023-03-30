@@ -11,7 +11,6 @@ import './globalStyles/home.css'
 import './globalStyles/components/buttons.css'
 import swipeOutImage from 'public/images/swipe-out-of-cards.jpg'
 import Link from 'next/link'
-import getFilteredJobs from './getFilteredJobs'
 
 export default function Home() {
 
@@ -62,7 +61,7 @@ export default function Home() {
         <Header></Header>
         <div className='home'>
             <div className="swipe-container">
-                {getFilteredJobs() ? (
+                {getFilteredJobs(tags, savedJobs).length > 0 ? (
                     <div className="swipe swipe--out">
                         <div className="swipe__image" style={{backgroundImage: `url(${swipeOutImage.src})`}}>
                             <div className="swipe__overlay">

@@ -5,6 +5,7 @@ import { useAtom } from 'jotai'
 import { savedJobsAtom } from '@/app/atoms'
 import './jobcards.css'
 import '../../globalStyles/components/buttons.css'
+import Link from 'next/link'
 
 export default function SavedJobs() {
 
@@ -24,7 +25,9 @@ export default function SavedJobs() {
       ) : (
         <div className='no-saved-jobs'>
           <h3 className='no-saved-job-title'>Du har inte sparat några jobb än!</h3>
-          <button className='button find-job-button'>Hitta ditt drömjobb</button>
+          <Link href='/'>
+              <div className='button find-job-button'>Tillbaka hem</div>
+          </Link>
         </div>
       )}
 

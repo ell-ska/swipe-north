@@ -1,26 +1,39 @@
 import api from './dummyApi'
 
-const getFilteredJobs = (tags) => {
+const getFilteredJobs = (tags, savedJobs) => {
 
+    let filteredJobs = api
     const activeTags = tags.filter(tag => tag.active).map(tag => tag.name)
 
-    const filteredJobs = api.filter(job => {
+    if (activeTags.length > 0) {
 
-        const jobTags = job.tags.map(tag => tag.name)
-
-        return jobTags.some(jobTag => {
-
-            const tag = tags.find(tag => tag.name == jobTag)
-
-            return (
-                tag && activeTags.includes(jobTag)
-            )
-
+        filteredJobs = api.filter(job => {
+    
+            const jobTags = job.tags.map(tag => tag.name)
+    
+            return jobTags.some(jobTag => {
+    
+                const tag = tags.find(tag => tag.name == jobTag)
+    
+                return (
+                    tag && activeTags.includes(jobTag)
+                )
+    
+            })
+    
         })
 
-    })
+    }
 
-    return filteredJobs
+    let filteredJobsWithoutSavedJobs = filteredJobs
+    
+    if (savedJobs.length > 0) {
+        savedJobs.map(savedJob => {
+            filteredJobsWithoutSavedJobs = filteredJobsWithoutSavedJobs.filter(job => job.id !== savedJob.id)
+        })
+    }
+
+    return filteredJobsWithoutSavedJobs
 
 }
 

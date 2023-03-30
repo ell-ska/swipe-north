@@ -5,7 +5,7 @@ const getAvailableTags = () => {
 
     let allAvailableTags = []
     let uniqueAvailableTags = []
-    
+
     api.map(job => {
         allAvailableTags = allAvailableTags.concat(job.tags)
     })
@@ -17,6 +17,7 @@ const getAvailableTags = () => {
     })
 
     return uniqueAvailableTags
+
 }
 
 export default getAvailableTags

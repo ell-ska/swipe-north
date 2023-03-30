@@ -1,11 +1,14 @@
 'use client'
 import { useAtom } from 'jotai'
-import { tagsAtom } from './atoms'
+import { tagsAtom, avaliableJobsAtom, savedJobsAtom } from './atoms'
 import Tag from './Tag'
+import getFilteredJobs from './getFilteredJobs'
 
 const AllTags = () => {
 
     const [tags, setTags] = useAtom(tagsAtom)
+    const [avaliableJobs, setAvaliableJobs] = useAtom(avaliableJobsAtom)
+    const [savedJobs, setSavedJobs] = useAtom(savedJobsAtom)
 
     const changeTagState = (id) => {
         
@@ -13,6 +16,9 @@ const AllTags = () => {
         tagToUpdate.active = !tagToUpdate.active
 
         setTags([...tags])
+
+        const newAvaliableJobs = getFilteredJobs(tags, savedJobs)
+        setAvaliableJobs(newAvaliableJobs)
 
     }
 

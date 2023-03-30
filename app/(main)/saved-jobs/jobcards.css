@@ -47,3 +47,18 @@
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-medium);
 }
+
+.no-saved-jobs {
+    margin: 16rem 2rem 21rem;
+}
+
+.no-saved-job-title {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-regular);
+    text-align: center;
+}
+
+.find-job-button {
+    margin-top: 2rem;
+    width: 100%;
+}

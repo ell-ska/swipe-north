@@ -78,17 +78,16 @@ export default function Home() {
                     </div> 
 
                 ) : (
-                    <div className='swipe-last'>
+                    <div className='swipe swipe-last'>
                         <h2 className='swipe-text'>Nu finns det tyvärr inga fler jobb som vi tror passar dig!</h2>
                         <Link href='/saved-jobs'>
                             <div className='button swipe-button'>Se dina sparade jobb</div>
                         </Link>
                     </div>
                 )}
-
                 {avaliableJobs.map(job => <SwipeCard key={job.jobTitle} {...job} onSwipe={onSwipe} ></SwipeCard>)}
             </div>
-            <SwipeButtons onSwipe={onSwipe} currentJob={currentJob} onGoBack={onGoBack} />
+            {avaliableJobs.length > 0 && <SwipeButtons onSwipe={onSwipe} currentJob={currentJob} onGoBack={onGoBack} />}
         </div>
       </>
     )

@@ -2,11 +2,11 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAtom } from 'jotai'
-import { savedJobsAtom, loggedInAtom, avaliableJobsAtom } from './atoms'
+import { savedJobsAtom, loggedInAtom, avaliableJobsAtom, tagsAtom } from './atoms'
 import Header from './Header'
 import SwipeButtons from './SwipeButtons'
 import SwipeCard from './SwipeCard'
-import api from './dummyApi'
+import getFilteredJobs from './getFilteredJobs'
 import './globalStyles/home.css'
 import './globalStyles/components/buttons.css'
 import swipeOutImage from 'public/images/swipe-out-of-cards.jpg'
@@ -17,6 +17,7 @@ export default function Home() {
 
     const router = useRouter()
 
+    const [tags, setTags] = useAtom(tagsAtom)
     const [isLoggedIn] = useAtom(loggedInAtom)
     const [avaliableJobs, setAvaliableJobs] = useAtom(avaliableJobsAtom)
     const [savedJobs, setSavedJobs] = useAtom(savedJobsAtom)
@@ -24,12 +25,7 @@ export default function Home() {
     const currentJob = avaliableJobs[avaliableJobs.length - 1]
 
     const onReset = () => {
-        let newAvaliableJobs = api
-
-        savedJobs.map(savedJob => {
-            newAvaliableJobs = newAvaliableJobs.filter(job => job.id !== savedJob.id)
-        })
-
+        const newAvaliableJobs = getFilteredJobs(tags, savedJobs)
         setAvaliableJobs(newAvaliableJobs)
     }
 

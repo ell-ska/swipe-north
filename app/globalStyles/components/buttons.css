@@ -5,6 +5,7 @@
     font-size: var(--font-size-1);
     font-weight: var(--font-weight-medium);
     padding: 1rem 2rem;
+    text-align: center;
 }
 
 .button.icon {

@@ -11,7 +11,7 @@ import { savedJobsAtom } from "./atoms"
 import { useAtom } from 'jotai'
 import { useRouter } from "next/navigation"
 
-const SeeMore = ({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id }) => {
+const SeeMore = ({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id, previousPage }) => {
     
     const router = useRouter()
     const [savedJobs, setSavedJobs] = useAtom(savedJobsAtom)

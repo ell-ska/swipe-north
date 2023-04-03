@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { useAtom } from 'jotai'
 import { savedJobsAtom, loggedInAtom, avaliableJobsAtom, tagsAtom } from './atoms'
 import Header from './Header'
@@ -54,10 +55,11 @@ export default function Home() {
     }
 
     return (
-        <>
-            <Header></Header>
-            <div className='home'>
-                <div className="swipe-container">
+      <>
+        <Header></Header>
+        <div className='home'>
+            <div className="swipe-container">
+                {getFilteredJobs(tags, savedJobs).length > 0 ? (
                     <div className="swipe swipe--out">
                         <div className="swipe__image" style={{backgroundImage: `url(${swipeOutImage.src})`}}>
                             <div className="swipe__overlay">
@@ -71,11 +73,20 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
+                    </div> 
+
+                ) : (
+                    <div className='swipe swipe-last'>
+                        <h2 className='swipe-text'>Nu finns det tyvärr inga fler jobb som vi tror passar dig!</h2>
+                        <Link href='/saved-jobs'>
+                            <div className='button swipe-button'>Se dina sparade jobb</div>
+                        </Link>
                     </div>
-                    {avaliableJobs.map(job => <SwipeCard key={job.jobTitle} {...job} onSwipe={onSwipe} ></SwipeCard>)}
-                </div>
-                <SwipeButtons onSwipe={onSwipe} currentJob={currentJob} onGoBack={onGoBack} />
+                )}
+                {avaliableJobs.map(job => <SwipeCard key={job.jobTitle} {...job} onSwipe={onSwipe} ></SwipeCard>)}
             </div>
-        </>
+            {avaliableJobs.length > 0 && <SwipeButtons onSwipe={onSwipe} currentJob={currentJob} onGoBack={onGoBack} />}
+        </div>
+      </>
     )
 }

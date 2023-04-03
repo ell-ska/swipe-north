@@ -4,7 +4,6 @@ import './globalStyles/notfound.css'
 import './globalStyles/components/buttons.css'
 
 export default function NotFound() {
-
     return (
         <>
             <Header></Header>

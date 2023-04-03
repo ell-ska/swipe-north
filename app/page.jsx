@@ -1,22 +1,21 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { useAtom } from 'jotai'
 import { savedJobsAtom, loggedInAtom, avaliableJobsAtom, tagsAtom } from './atoms'
 import Header from './Header'
-import SwipeButtons from './SwipeButtons'
 import SwipeCard from './SwipeCard'
+import SwipeButtons from './SwipeButtons'
 import getFilteredJobs from './getFilteredJobs'
+import swipeOutImage from 'public/images/swipe-out-of-cards.jpg'
 import './globalStyles/home.css'
 import './globalStyles/components/buttons.css'
-import swipeOutImage from 'public/images/swipe-out-of-cards.jpg'
-import Link from 'next/link'
 
 export default function Home() {
 
     const router = useRouter()
-
-    const [tags, setTags] = useAtom(tagsAtom)
+    const [tags] = useAtom(tagsAtom)
     const [isLoggedIn] = useAtom(loggedInAtom)
     const [avaliableJobs, setAvaliableJobs] = useAtom(avaliableJobsAtom)
     const [savedJobs, setSavedJobs] = useAtom(savedJobsAtom)
@@ -42,7 +41,6 @@ export default function Home() {
         const currentJob = avaliableJobs.find(job => job.id === id)
         
         if (direction === 'up') {
-
             setSavedJobs([...savedJobs, currentJob])
 
             if (!isLoggedIn) {

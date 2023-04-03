@@ -8,7 +8,7 @@ const AllTags = () => {
 
     const [tags, setTags] = useAtom(tagsAtom)
     const [avaliableJobs, setAvaliableJobs] = useAtom(avaliableJobsAtom)
-    const [savedJobs, setSavedJobs] = useAtom(savedJobsAtom)
+    const [savedJobs] = useAtom(savedJobsAtom)
 
     const changeTagState = (id) => {
         

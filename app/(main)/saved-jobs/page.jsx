@@ -1,16 +1,15 @@
 'use client'
-import Header from '@/app/Header'
-import JobCard from './Jobcard'
+import Link from 'next/link'
 import { useAtom } from 'jotai'
 import { savedJobsAtom } from '@/app/atoms'
+import Header from '@/app/Header'
+import JobCard from './Jobcard'
 import './jobcards.css'
 import '../../globalStyles/components/buttons.css'
-import Link from 'next/link'
 
 export default function SavedJobs() {
 
   const [savedJobs] = useAtom(savedJobsAtom)
-  console.log(savedJobs)
 
   return (
     <>

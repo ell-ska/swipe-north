@@ -1,9 +1,9 @@
 'use client'
-import { useEffect, useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { usePathname } from "next/navigation"
-import Menu from "./Menu"
+import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
+import Image from 'next/image'
+import Menu from './Menu'
 import styles from './globalStyles/header.module.css'
 import logo from '../public/icons/skelleftea-logo.svg'
 import heart from '../public/icons/heart-filled.svg'

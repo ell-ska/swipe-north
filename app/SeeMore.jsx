@@ -1,15 +1,14 @@
 'use client'
-import Link from "next/link"
-import Image from "next/image"
-import Tag from "./Tag"
-import SwipeButtons from "./SwipeButtons"
+import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+import Image from 'next/image'
+import { useAtom } from 'jotai'
+import { savedJobsAtom } from './atoms'
+import Tag from './Tag'
 import trashcan from 'public/icons/trashcan.svg'
 import arrowLeft from 'public/icons/arrow-left.svg'
 import './globalStyles/see-more.css'
 import './globalStyles/components/buttons.css'
-import { savedJobsAtom } from "./atoms"
-import { useAtom } from 'jotai'
-import { useRouter } from "next/navigation"
 
 const SeeMore = ({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id, previousPage }) => {
     
@@ -48,7 +47,6 @@ const SeeMore = ({ companyName, jobTitle, shortDescription, linkToJobApplication
                     <button className='button see-more-button'>Sök jobbet</button>
                 </Link>
             </div>
-            {/* <SwipeButtons></SwipeButtons> */}
         </div>
     )
 }

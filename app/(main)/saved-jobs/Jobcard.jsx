@@ -1,6 +1,6 @@
 'use client'
-import './jobcards.css'
 import Link from 'next/link'
+import './jobcards.css'
 
 export default function JobCards({img, companyName, jobTitle, id}) {
     return (

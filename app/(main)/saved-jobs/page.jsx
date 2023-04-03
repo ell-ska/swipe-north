@@ -1,8 +1,8 @@
 'use client'
-import Header from '@/app/Header'
-import JobCard from './Jobcard'
 import { useAtom } from 'jotai'
 import { savedJobsAtom } from '@/app/atoms'
+import Header from '@/app/Header'
+import JobCard from './Jobcard'
 import './jobcards.css'
 
 export default function SavedJobs() {

@@ -1,15 +1,3 @@
-/*
-8-10 jobb
-companyName
-jobTitle
-shortDescription
-linkToJobApp
-tags 2-5 st (taxi, social, )
-img (unsplashed.com, pexels.com, lägg en img mapp i public och länka in dem)
-*/
-
-// tag categories: field, qualification, ability, workstyle
-
 import taxiDriverImg from '../public/images/jobs/taxi-mobile.jpg'
 import foodDeliveryImg from '../public/images/jobs/food-delivery-mobile.jpg'
 import nurseImg from '../public/images/jobs/nurse-mobile.jpg'

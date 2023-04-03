@@ -1,5 +1,5 @@
-import Link from "next/link"
-import AllTags from "@/app/AllTags"
+import Link from 'next/link'
+import AllTags from '@/app/AllTags'
 import '../welcome/welcome.css'
 import '../../globalStyles/components/buttons.css'
 

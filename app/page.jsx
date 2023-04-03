@@ -4,18 +4,17 @@ import { useRouter } from 'next/navigation'
 import { useAtom } from 'jotai'
 import { savedJobsAtom, loggedInAtom, avaliableJobsAtom, tagsAtom } from './atoms'
 import Header from './Header'
-import SwipeButtons from './SwipeButtons'
 import SwipeCard from './SwipeCard'
+import SwipeButtons from './SwipeButtons'
 import getFilteredJobs from './getFilteredJobs'
+import swipeOutImage from 'public/images/swipe-out-of-cards.jpg'
 import './globalStyles/home.css'
 import './globalStyles/components/buttons.css'
-import swipeOutImage from 'public/images/swipe-out-of-cards.jpg'
 
 export default function Home() {
 
     const router = useRouter()
-
-    const [tags, setTags] = useAtom(tagsAtom)
+    const [tags] = useAtom(tagsAtom)
     const [isLoggedIn] = useAtom(loggedInAtom)
     const [avaliableJobs, setAvaliableJobs] = useAtom(avaliableJobsAtom)
     const [savedJobs, setSavedJobs] = useAtom(savedJobsAtom)
@@ -41,7 +40,6 @@ export default function Home() {
         const currentJob = avaliableJobs.find(job => job.id === id)
         
         if (direction === 'up') {
-
             setSavedJobs([...savedJobs, currentJob])
 
             if (!isLoggedIn) {
@@ -56,28 +54,28 @@ export default function Home() {
     }
 
     return (
-      <>
-        <Header></Header>
-        <div className='home'>
-            <div className="swipe-container">
-                <div className="swipe swipe--out">
-                    <div className="swipe__image" style={{backgroundImage: `url(${swipeOutImage.src})`}}>
-                        <div className="swipe__overlay">
-                            <div className="swipe--out__content">
-                                <h2>Du har nu sett alla tillgängliga jobb!</h2>
-                                <h3>Men alla förtjänar en andra chans, eller hur?</h3>
-                            </div>
-                            <div className="swipe--out__footer">
-                                <button className="button" onClick={() => currentJob === undefined ? onReset() : null}>Börja om</button>
-                                <p>när du börjar om rensas din historik men du behåller dina sparade jobb</p>
+        <>
+            <Header></Header>
+            <div className='home'>
+                <div className="swipe-container">
+                    <div className="swipe swipe--out">
+                        <div className="swipe__image" style={{backgroundImage: `url(${swipeOutImage.src})`}}>
+                            <div className="swipe__overlay">
+                                <div className="swipe--out__content">
+                                    <h2>Du har nu sett alla tillgängliga jobb!</h2>
+                                    <h3>Men alla förtjänar en andra chans, eller hur?</h3>
+                                </div>
+                                <div className="swipe--out__footer">
+                                    <button className="button" onClick={() => currentJob === undefined ? onReset() : null}>Börja om</button>
+                                    <p>när du börjar om rensas din historik men du behåller dina sparade jobb</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {avaliableJobs.map(job => <SwipeCard key={job.jobTitle} {...job} onSwipe={onSwipe} ></SwipeCard>)}
                 </div>
-                {avaliableJobs.map(job => <SwipeCard key={job.jobTitle} {...job} onSwipe={onSwipe} ></SwipeCard>)}
+                <SwipeButtons onSwipe={onSwipe} currentJob={currentJob} onGoBack={onGoBack} />
             </div>
-            <SwipeButtons onSwipe={onSwipe} currentJob={currentJob} onGoBack={onGoBack} />
-        </div>
-      </>
+        </>
     )
 }

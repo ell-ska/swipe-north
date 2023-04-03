@@ -7,7 +7,7 @@ const TinderCard = dynamic(
     { ssr: false }
 )
 
-export default function SwipeCard({ companyName, jobTitle, shortDescription, linkToJobApplication, tags, img, id, onSwipe }) {
+export default function SwipeCard({ companyName, jobTitle, img, id, onSwipe }) {
 
     return (
         <TinderCard

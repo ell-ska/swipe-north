@@ -29,7 +29,6 @@ export default function SavedJobs() {
           </Link>
         </div>
       )}
-
     </>
-  );
+  )
 }
